@@ -1,0 +1,7 @@
+{
+  "id": "launcher",
+  "schemaType": "LAUNCHER",
+  "displayName": "Momentum Bambas",
+  "description": "Momentum Bambas app",
+  "rootNerdletId": "42c5d27b-f5cc-4a94-a718-7029088c9285.home"
+}

@@ -1,0 +1,31 @@
+// Styles
+@import "Loader/styles.scss";
+
+button {
+  @extend %button_loader;
+
+  column-gap: 0.35rem;
+  outline: none !important;
+  transition: none !important;
+  box-shadow: none !important;
+
+  &:disabled {
+    color: #959595;
+    background-color: #eceded !important;
+  }
+
+  &.btn-back,
+  &.btn-cancel {
+    color: #4f4f4f;
+    border: 1px solid #bdbdbd;
+    background-color: #ffffff;
+  }
+
+  &.btn-submit:enabled,
+  &.btn-submit.submitting,
+  &.btn-submit:disabled.submitting {
+    color: #ffffff;
+    border: 1px solid #2f80ed;
+    background-color: #2f80ed !important;
+  }
+}

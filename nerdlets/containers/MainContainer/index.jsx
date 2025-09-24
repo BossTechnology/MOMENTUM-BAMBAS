@@ -1,0 +1,17 @@
+// Components
+import Header from "../../components/Header";
+import Hexagons from "../../components/Hexagons";
+import Resources from "../../components/Resources";
+
+export default function MainContainer() {
+  return (
+    <main className="main-container">
+      <Header />
+
+      <div className="main-box py-4 px-5">
+        <Hexagons />
+        <Resources />
+      </div>
+    </main>
+  );
+}

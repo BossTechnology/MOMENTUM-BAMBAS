@@ -1,0 +1,27 @@
+.main-container {
+  & .main-box {
+    overflow-y: auto;
+    margin-top: 52px;
+    height: calc(100vh - 52px);
+
+    &::-webkit-scrollbar {
+      width: 14px;
+      height: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      border-radius: 5px;
+      background: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background: #374c6c;
+      border: 4px solid #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #5c7190;
+    }
+  }
+}

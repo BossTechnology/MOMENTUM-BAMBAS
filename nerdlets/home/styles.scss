@@ -1,0 +1,23 @@
+// Library styles
+@import "~bootstrap/scss/bootstrap";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+// Component styles
+@import "../containers/styles.scss";
+@import "../components/styles.scss";
+
+body,
+html,
+#root {
+  font-size: 13px;
+  overflow: hidden;
+  color: #333333;
+  scrollbar-color: auto;
+  font-family: "Montserrat", sans-serif;
+}
+
+.mask {
+  z-index: 100;
+  background-color: rgb(9, 9, 9, 0.65);
+}

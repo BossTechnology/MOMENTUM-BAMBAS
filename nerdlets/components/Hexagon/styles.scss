@@ -1,0 +1,40 @@
+// Styles
+@import "Tooltip/styles.scss";
+
+.hexagon {
+  @extend %hexagon_tooltip;
+
+  min-width: 100px;
+  min-height: 120px;
+  background-size: cover;
+  background-position: center center;
+
+  &.showing-tooltip {
+    &,
+    & > button {
+      z-index: 1000;
+    }
+
+    & button > svg {
+      & > path {
+        fill: #ffffff;
+      }
+
+      &.brake-icon,
+      &.handbrake-icon {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+
+  & button > svg {
+    top: 50%;
+    left: 50%;
+    min-width: 50px;
+    max-width: 50px;
+    min-height: 50px;
+    max-height: 50px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
+}
