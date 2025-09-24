@@ -7,7 +7,10 @@
     },
     "scripts": {
         "start": "nr1 nerdpack:serve",
-        "test": "exit 0"
+        "test": "exit 0",
+        "uuid": "nr1 nerdpack:uuid -gf",
+        "publish": "nr1 nerdpack:publish",
+        "subscribe": "nr1 nerdpack:subscribe --channel=STABLE"
     },
     "nr1": {
         "uuid": "42c5d27b-f5cc-4a94-a718-7029088c9285"

@@ -14,7 +14,7 @@ function Tooltip({ hide, title, message }) {
   return (
     <article
       className={classnames([
-        window.innerWidth <= 1500 ? "left" : "bottom",
+        window.innerWidth <= 1400 ? "left" : "bottom",
         "tooltip-box d-flex flex-column position-absolute",
       ])}
     >
