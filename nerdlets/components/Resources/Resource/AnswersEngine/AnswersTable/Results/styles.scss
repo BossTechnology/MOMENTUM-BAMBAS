@@ -1,0 +1,8 @@
+// Styles
+@import "./Answer/styles.scss";
+
+%answersTable_results {
+  & .answers-result-list {
+    @extend %answersResults_answer;
+  }
+}

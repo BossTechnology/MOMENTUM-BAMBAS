@@ -1,0 +1,17 @@
+%answersTable_fields {
+  & .answers-table-fields {
+    background-color: #f8f8f8;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 1px solid #bdbdbd;
+
+    & .field-box {
+      padding: 0.65rem 0;
+
+      & .field-info,
+      & .field-value {
+        font-size: 13px;
+      }
+    }
+  }
+}

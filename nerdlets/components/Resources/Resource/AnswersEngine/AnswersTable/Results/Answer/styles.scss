@@ -1,0 +1,48 @@
+%answersResults_answer {
+  & .answer-item {
+    font-size: 12px;
+    line-height: 17px;
+    word-break: break-word;
+    border-bottom: 1px solid #bdbdbd;
+
+    & .dangerous-bar {
+      min-width: 4px;
+      background-color: #ff4e63;
+    }
+
+    & .field-value-box {
+      column-gap: 0.15rem;
+
+      & .field-value {
+        min-width: max-content;
+      }
+
+      & .status-box {
+        & svg {
+          min-width: 11px;
+          max-width: 11px;
+          min-height: 11px;
+          max-height: 11px;
+        }
+
+        &.low {
+          & svg path {
+            fill: #ff4e63;
+            stroke: #ff4e63;
+          }
+        }
+
+        &.high {
+          & svg {
+            rotate: 180deg;
+
+            & path {
+              fill: #21c50b;
+              stroke: #21c50b;
+            }
+          }
+        }
+      }
+    }
+  }
+}

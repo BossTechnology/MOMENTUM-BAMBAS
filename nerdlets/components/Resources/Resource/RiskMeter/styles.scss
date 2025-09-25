@@ -1,0 +1,53 @@
+// Components
+@import "Marker/styles";
+
+%resource_riskMeter {
+  & .risk-meter-box {
+    @extend %riskMeter_marker;
+
+    & .title {
+      font-size: 14px;
+    }
+
+    & .box {
+      border-radius: 12px;
+      border: 1px solid #f2f2f2;
+      padding: 0.75rem 0.75rem 1.5rem;
+
+      & .range {
+        top: 0;
+        z-index: 999;
+        min-height: 49px;
+        cursor: pointer;
+      }
+
+      & .inner {
+        min-height: 35px;
+        background-color: #f8f8f8;
+        border: 1px solid #cecece;
+
+        & .dangerous-percentage-box {
+          z-index: 9;
+          background-color: #ff4e63;
+        }
+
+        & .percentage-box,
+        & .dangerous-percentage-box {
+          min-height: 35px;
+        }
+
+        & .percentage-box {
+          min-width: 45px;
+          max-height: 35px;
+          background-color: #374c6c;
+          padding: 0.7rem 0.25rem 0.7rem 0.9rem;
+
+          & .percentage {
+            z-index: 999;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+}

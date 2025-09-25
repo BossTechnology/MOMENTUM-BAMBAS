@@ -1,0 +1,23 @@
+// Styles
+@import "./Fields/styles.scss";
+@import "./Results/styles.scss";
+
+%answersEngine_answersTable {
+  & .answers-table {
+    @extend %answersTable_fields;
+    @extend %answersTable_results;
+
+    & .separator {
+      min-height: 18px;
+    }
+
+    & .field-info-box {
+      width: 80%;
+      border-right: 1px solid #bdbdbd;
+    }
+
+    & .field-value-box {
+      width: 20%;
+    }
+  }
+}

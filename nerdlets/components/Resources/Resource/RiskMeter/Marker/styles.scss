@@ -1,0 +1,20 @@
+%riskMeter_marker {
+  & .marker-box {
+    z-index: 99;
+    max-width: 4px;
+    row-gap: 0.2rem;
+
+    &.inside-dangerous-bar {
+      & svg {
+        margin-left: -5px;
+      }
+    }
+
+    & .line {
+      min-width: 5px;
+      max-width: 5px;
+      min-height: 35px;
+      background-color: #ff4e63;
+    }
+  }
+}

@@ -8,7 +8,7 @@ export default function MainContainer() {
     <main className="main-container">
       <Header />
 
-      <div className="main-box py-4 px-5">
+      <div className="main-box py-4 px-2 d-flex flex-column">
         <Hexagons />
         <Resources />
       </div>
