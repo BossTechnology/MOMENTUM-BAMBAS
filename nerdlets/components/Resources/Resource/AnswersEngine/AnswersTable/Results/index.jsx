@@ -11,8 +11,6 @@ export default function AnswersTable({ answers }) {
   // Check if has answers
   const hasAnswers = isValidArray(answers);
 
-  console.log({ answers });
-
   if (!hasAnswers) return null;
 
   return (

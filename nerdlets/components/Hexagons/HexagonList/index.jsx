@@ -13,11 +13,11 @@ export default function HexagonList({ hexagons, className }) {
     <ul
       className={classnames([
         className,
-        "hexagon-list d-flex 1 align-items-center list-unstyled p-0 m-0",
+        "hexagon-list d-flex align-items-center list-unstyled p-0 m-0",
       ])}
     >
       {createValidArray(hexagons).map((item) => (
-        <li className="top-hexagon-item" key={`top-hexagon-item-${item?._id}`}>
+        <li className="hexagon-item" key={`hexagon-item-${item?._id}`}>
           <Hexagon {...item} />
         </li>
       ))}

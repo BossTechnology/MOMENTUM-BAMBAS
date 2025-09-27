@@ -1,40 +1,81 @@
 // Styles
+@import "Dot/styles.scss";
 @import "Tooltip/styles.scss";
+@import "HexagonContent/styles.scss";
 
-.hexagon {
+@property --pct {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hexagon {
+    transition: none;
+  }
+}
+
+.hexagon-box {
+  max-width: max-content;
+
+  @extend %hexagon_dot;
+  @extend %hexagon_content;
   @extend %hexagon_tooltip;
-
-  min-width: 100px;
-  min-height: 120px;
-  background-size: cover;
-  background-position: center center;
 
   &.showing-tooltip {
     &,
-    & > button {
+    & button {
       z-index: 1000;
     }
+  }
 
-    & button > svg {
-      & > path {
-        fill: #ffffff;
+  &.active {
+    & .dot-box {
+      & .dot {
+        background-color: #ffc107;
+        border: 1px solid #ffc107;
       }
+    }
 
-      &.brake-icon,
-      &.handbrake-icon {
-        filter: brightness(0) invert(1);
+    & .hexagon {
+      background: conic-gradient(
+        from -90deg,
+        #ffc107 0 calc(var(--pct) * 1%),
+        #ffebaa 0
+      );
+
+      & .hexagon-content {
+        background-color: #fff9e6;
       }
     }
   }
 
-  & button > svg {
-    top: 50%;
-    left: 50%;
-    min-width: 50px;
-    max-width: 50px;
-    min-height: 50px;
-    max-height: 50px;
-    position: absolute;
-    transform: translate(-50%, -50%);
+  &:not(.active) {
+    & .hexagon {
+      background: conic-gradient(
+        from -90deg,
+        #ffc107 0 calc(var(--pct) * 1%),
+        #f8f8f8 0
+      );
+    }
+  }
+
+  & .hexagon {
+    --pct: 0;
+    rotate: 90deg;
+    min-width: 100px;
+    min-height: 100px;
+    will-change: --pct;
+    aspect-ratio: 1 / 1;
+    transition: --pct 1s ease; /* anima cuando cambie --pct */
+
+    clip-path: polygon(
+      25% 3.5%,
+      75% 3.5%,
+      100% 50%,
+      75% 96.5%,
+      25% 96.5%,
+      0% 50%
+    );
   }
 }

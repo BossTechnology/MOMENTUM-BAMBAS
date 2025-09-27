@@ -14,7 +14,6 @@ export default function Resource({
   riskMeter,
   answersEngine,
 }) {
-  console.log({ answersEngine });
   return (
     <article className="resource py-4 d-flex flex-column">
       <h6 className="title mb-3 text-center text-uppercase fw-bold">{title}</h6>

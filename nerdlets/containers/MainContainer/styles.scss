@@ -1,8 +1,9 @@
 .main-container {
   & .main-box {
-    row-gap: 2rem;
+    padding: 2rem 0;
     overflow-y: auto;
     margin-top: 52px;
+    row-gap: 2.25rem;
     height: calc(100vh - 52px);
 
     &::-webkit-scrollbar {

@@ -16,6 +16,7 @@ const bigHexagons = [
   {
     active: true,
     icon: <Truck1Icon />,
+    percentage: 80,
     tooltip: {
       title: "TRÁNSITO CARGADO",
       message:
@@ -25,6 +26,7 @@ const bigHexagons = [
   },
   {
     active: true,
+    percentage: 40,
     icon: <Truck2Icon />,
     tooltip: {
       title: "CARGA EN BANCO",
@@ -36,6 +38,7 @@ const bigHexagons = [
   {
     active: true,
     icon: <Truck3Icon />,
+    percentage: 20,
     tooltip: {
       title: "TRANSPORTE DE MINERAL",
       message:
@@ -46,6 +49,7 @@ const bigHexagons = [
   {
     active: true,
     icon: <Truck4Icon />,
+    percentage: 100,
     tooltip: {
       title: "TRÁNSITO VACÍO / RETORNO",
       message:
@@ -56,6 +60,7 @@ const bigHexagons = [
   {
     active: true,
     icon: <Truck5Icon />,
+    percentage: 35,
     tooltip: {
       title: "DESCARGA / VOLTEO",
       message:

@@ -1,5 +1,7 @@
 %hexagons_hexagonList {
   & .hexagon-list {
+    column-gap: 0.1rem;
+
     &.big-hexagons {
       & .truck2-icon {
         top: 40%;
@@ -16,16 +18,22 @@
     }
 
     &.small-hexagons {
-      margin-top: -35px !important;
+      column-gap: 0.45rem;
+      margin-top: -15px !important;
 
       & .hexagon {
-        min-height: 110px;
+        min-width: 95px;
+        min-height: 95px;
 
-        & svg {
-          min-width: 35px;
-          max-width: 35px;
-          min-height: 35px;
-          max-height: 35px;
+        & .hexagon-content {
+          & .btn-hexagon {
+            & svg {
+              min-width: 28px;
+              max-width: 28px;
+              min-height: 28px;
+              max-height: 28px;
+            }
+          }
         }
       }
     }

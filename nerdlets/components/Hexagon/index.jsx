@@ -1,46 +1,44 @@
 // Librarys
+import { memo } from "react";
 import PropTypes from "prop-types";
-import { memo, useState } from "react";
 
 // Components
-import Button from "../Button";
+import Dot from "./Dot";
 import Tooltip from "./Tooltip";
+import HexagonContent from "./HexagonContent";
+
+// Hooks
+import useHexagon from "./useHexagon";
 
 // Utils
 import classnames from "../../utils/classnames";
 import createValidObject from "../../utils/createValidObject";
 
-// Images
-import activeHexagon from "./images/active-hexagon.gif";
-import inactiveHexagon from "./images/inactive-hexagon.png";
-
-function Hexagon({ icon, active, tooltip }) {
-  const [isShowingTooltip, setShowingTooltip] = useState(false);
+function Hexagon({ icon, active, tooltip, percentage }) {
+  const { pct, showTooltip, hideTooltip, isShowingTooltip } = useHexagon({
+    percentage: percentage,
+  });
 
   return (
     <div
       className={classnames([
+        active ? "active" : null,
         isShowingTooltip ? "showing-tooltip" : null,
-        "hexagon d-flex align-items-center justify-content-center position-relative",
+        "hexagon-box d-flex align-items-center justify-content-center position-relative",
       ])}
-      style={{
-        backgroundImage: `url(${active ? activeHexagon : inactiveHexagon})`,
-      }}
     >
-      {icon && (
-        <Button
+      <div className="hexagon position-relative" style={{ "--pct": pct }}>
+        <HexagonContent
           icon={icon}
-          onClick={() => setShowingTooltip(true)}
-          className="btn-hexagon p-0 bg-transparent"
-          titlePopup="Click to see more information...."
+          percentage={percentage}
+          showTooltip={showTooltip}
         />
-      )}
+      </div>
+
+      <Dot />
 
       {active && isShowingTooltip && (
-        <Tooltip
-          {...createValidObject(tooltip)}
-          hide={() => setShowingTooltip(false)}
-        />
+        <Tooltip {...createValidObject(tooltip)} hide={hideTooltip} />
       )}
     </div>
   );
@@ -50,7 +48,7 @@ Hexagon.propTypes = {
   icon: PropTypes.node,
   active: PropTypes.bool,
   tooltip: PropTypes.object,
-  direction: PropTypes.string,
+  percentage: PropTypes.number.isRequired,
 };
 
 export default memo(Hexagon);

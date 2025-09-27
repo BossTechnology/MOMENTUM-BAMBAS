@@ -18,6 +18,7 @@ const smallHexagons = [
   {
     active: true,
     icon: <BrakeIcon />,
+    percentage: 15,
     tooltip: {
       title: "MANTENIMIENTO DE VÍA",
       message:
@@ -35,6 +36,7 @@ const smallHexagons = [
   },
   {
     active: true,
+    percentage: 50,
     icon: <HandbrakeIcon />,
     tooltip: {
       title: "INCIDENCIA / OBSERVACIÓN",
