@@ -17,7 +17,7 @@ export default function TiresTable({ touchpoints, onClickQuery }) {
   const hasTouchpoints = isValidArray(touchpoints);
 
   return (
-    <div className="tires-table d-flex flex-column mb-4">
+    <div className="tires-table d-flex flex-column">
       <TableFields fields={fields} />
 
       {hasTouchpoints && (

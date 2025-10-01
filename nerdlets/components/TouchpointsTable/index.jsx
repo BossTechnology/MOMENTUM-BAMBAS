@@ -17,7 +17,7 @@ export default function TouchpointsTable({ touchpoints, onClickQuery }) {
   const hasTouchpoints = isValidArray(touchpoints);
 
   return (
-    <div className="touchpoints-table d-flex flex-column mb-4">
+    <div className="touchpoints-table d-flex flex-column">
       <TableFields fields={fields} />
 
       {hasTouchpoints && (

@@ -18,9 +18,12 @@
       padding-right: 0.35rem;
     }
 
+    & .chat-box,
     & .comment-form {
       margin-top: 1rem;
+    }
 
+    & .comment-form {
       & .btn-add-comment {
         max-width: 150px;
         margin-left: auto;
