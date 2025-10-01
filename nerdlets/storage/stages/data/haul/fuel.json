@@ -1,0 +1,227 @@
+{
+  "kpi": {
+    "total": 35,
+    "status": "high"
+  },
+  "riskMeter": {
+    "value": 0,
+    "percentage": 100
+  },
+  "answersEngine": [
+    {
+      "value": "84%",
+      "status": "high",
+      "label": "Entidad motor red tiempo sistema"
+    },
+    {
+      "value": "90%",
+      "status": "low",
+      "label": "Métrica usuario"
+    },
+    {
+      "value": "45%",
+      "status": "low",
+      "label": "Registro dato sistema entidad cloud"
+    }
+  ],
+  "touchpoints": [
+    {
+      "_id": "1d4cf89d-29b2-49a4-a01c-a837a172449e",
+      "adn": "Métrica alerta",
+      "weight": "med",
+      "name": "Respuesta transacción estado servicios panel",
+      "query": "SELECT percentile(duration, 95) FROM Transaction WHERE appName LIKE 'web-%' SINCE 1 hour ago",
+      "status": "danger",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "0cbcea63-8c14-49b1-8df5-f812d38c842b",
+      "adn": "Motor módulo",
+      "weight": "hvy",
+      "name": "Consulta alerta columna",
+      "query": "SELECT rate(count(*), 1 minute) FROM SyntheticCheck WHERE duration > 0.5 FACET name SINCE 24 hours ago",
+      "status": "warning",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "87a44634-702d-4c9a-b68f-67e82eb7e2d4",
+      "adn": "Aplicación respuesta",
+      "weight": "lht",
+      "name": "Servicio motor agente",
+      "query": "SELECT sum(errorCount) FROM Transaction WHERE duration > 0.5 FACET name SINCE 1 hour ago",
+      "status": "success",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "6f043f08-2ee4-4f3c-be2e-e35b5f1a95cc",
+      "adn": "Transacción entidad entidad",
+      "weight": "med",
+      "name": "Columna módulo alerta estado",
+      "query": "SELECT sum(errorCount) FROM SyntheticCheck SINCE 1 hour ago",
+      "status": "success",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "b3a1e563-d539-4257-bdab-80e000404915",
+      "adn": "Error",
+      "weight": "med",
+      "name": "Cloud métrica",
+      "query": "SELECT rate(count(*), 1 minute) FROM Log WHERE appName LIKE 'web-%' SINCE 30 minutes ago",
+      "status": "success",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "34e4bd11-6b11-4a30-9687-ff43fbf5cb2a",
+      "adn": "Tiempo",
+      "weight": "lht",
+      "name": "Vista panel",
+      "query": "SELECT average(duration) FROM Log WHERE entityGuid IS NOT NULL FACET appName SINCE 30 minutes ago",
+      "status": "queued",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "6b51b927-a9e2-4d7f-94fb-4766afec088c",
+      "adn": "Columna",
+      "weight": "lht",
+      "name": "Entidad consulta",
+      "query": "SELECT percentile(duration, 95) FROM PageView WHERE name LIKE 'WebTransaction/%' FACET name SINCE 1 hour ago",
+      "status": "warning",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "ba91038b-aadc-42a5-bb2a-08a13bcb1da4",
+      "adn": "Vista tiempo servicios",
+      "weight": "hvy",
+      "name": "Agente transacción motor",
+      "query": "SELECT sum(errorCount) FROM SyntheticCheck WHERE httpResponseCode LIKE '5%%' FACET appName SINCE 24 hours ago",
+      "status": "danger",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "cf292f6c-d650-415d-8254-721811963e6a",
+      "adn": "Panel",
+      "weight": "lht",
+      "name": "Error columna",
+      "query": "SELECT count(*) FROM SyntheticCheck WHERE appName LIKE 'web-%' FACET name SINCE 30 minutes ago",
+      "status": "warning",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "d229edbc-4010-4b12-a5ef-ea5d37eb8231",
+      "adn": "Transacción",
+      "weight": "med",
+      "name": "Columna métrica",
+      "query": "SELECT average(duration) FROM Log WHERE error IS true SINCE 24 hours ago",
+      "status": "warning",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "788a9c16-1e1e-44ac-838e-09f38d9fec49",
+      "adn": "Servicio respuesta",
+      "weight": "med",
+      "name": "Alerta servicio columna red",
+      "query": "SELECT sum(errorCount) FROM PageView WHERE duration > 0.5 FACET name SINCE 30 minutes ago",
+      "status": "success",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "22ccecc8-6d19-4ede-beef-fe68c259f6ce",
+      "adn": "Consulta error",
+      "weight": "lht",
+      "name": "Sistema cloud panel servicio evento",
+      "query": "SELECT count(*) FROM Transaction WHERE appName LIKE 'web-%' SINCE 24 hours ago",
+      "status": "warning",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "d5927b6d-d048-44d6-8a68-33dce1f706d0",
+      "adn": "Rendimiento",
+      "weight": "med",
+      "name": "Consulta estado tiempo evento error",
+      "query": "SELECT sum(errorCount) FROM PageView WHERE httpResponseCode LIKE '5%%' FACET name SINCE 24 hours ago",
+      "status": "queued",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "d1b4755d-afb7-498a-9d36-3a2000abe49a",
+      "adn": "Alerta respuesta rendimiento",
+      "weight": "hvy",
+      "name": "Métrica error servicios error",
+      "query": "SELECT rate(count(*), 1 minute) FROM SyntheticCheck WHERE entityGuid IS NOT NULL SINCE 30 minutes ago",
+      "status": "queued",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "a7e6b673-3ef1-48c0-9820-f3848ca6b46b",
+      "adn": "Sistema módulo",
+      "weight": "lht",
+      "name": "Registro registro estado tiempo vista",
+      "query": "SELECT count(*) FROM Transaction WHERE duration > 0.5 FACET appName SINCE 1 hour ago",
+      "status": "queued",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "c813d5a1-91f0-4d87-8239-f325861b627d",
+      "adn": "Consulta rendimiento transacción",
+      "weight": "hvy",
+      "name": "Cloud rendimiento respuesta dato",
+      "query": "SELECT percentile(duration, 95) FROM Log WHERE httpResponseCode LIKE '5%%' FACET appName SINCE 30 minutes ago",
+      "status": "danger",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "f76ba2ad-8f2f-4986-9224-4c4e3d9e3736",
+      "adn": "Panel transacción servicio",
+      "weight": "lht",
+      "name": "Estado módulo cloud",
+      "query": "SELECT percentile(duration, 95) FROM Span WHERE duration > 0.5 SINCE 1 hour ago",
+      "status": "success",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "179b4691-1a89-4e18-b831-c99f7d0a2f56",
+      "adn": "Módulo cloud métrica",
+      "weight": "hvy",
+      "name": "Transacción red registro",
+      "query": "SELECT rate(count(*), 1 minute) FROM PageView WHERE entityGuid IS NOT NULL SINCE 1 hour ago",
+      "status": "warning",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    }
+  ]
+}

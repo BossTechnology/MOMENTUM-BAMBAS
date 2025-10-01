@@ -4,15 +4,16 @@ import PropTypes from "prop-types";
 
 // Components
 import Button from "../../Button";
-import AiIcon from "./icons/ai-icon";
 import Portal from "../../Modal/Portal";
+import AiIcon from "../../icons/ai-icon";
 
 // Utils
 import classnames from "../../../utils/classnames";
 
-function Tooltip({ hide, title, message }) {
+function Tooltip({ hide, title, message, onViewDetails }) {
   return (
     <article
+      role="tooltip"
       className={classnames([
         window.innerWidth <= 1400 ? "left" : "bottom",
         "tooltip-box d-flex flex-column position-absolute",
@@ -33,12 +34,17 @@ function Tooltip({ hide, title, message }) {
 
       <p className="message mt-2 mb-4">{message}</p>
 
-      <Button title="+ Detalles" className="fw-light btn-details ms-auto" />
+      <Button
+        title="+ Detalles"
+        className="fw-light btn-details ms-auto"
+        onClick={onViewDetails}
+      />
     </article>
   );
 }
 
 Tooltip.propTypes = {
+  onViewDetails: PropTypes.func,
   hide: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,

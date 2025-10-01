@@ -1,5 +1,6 @@
 // Components
 @import "Marker/styles";
+@import "PercentageBar/styles";
 
 %resource_riskMeter {
   & .risk-meter-box {
@@ -26,6 +27,8 @@
         background-color: #f8f8f8;
         border: 1px solid #cecece;
 
+        @extend %riskMeter_percentageBar;
+
         & .dangerous-percentage-box {
           z-index: 9;
           background-color: #ff4e63;
@@ -34,18 +37,6 @@
         & .percentage-box,
         & .dangerous-percentage-box {
           min-height: 35px;
-        }
-
-        & .percentage-box {
-          min-width: 45px;
-          max-height: 35px;
-          background-color: #374c6c;
-          padding: 0.7rem 0.25rem 0.7rem 0.9rem;
-
-          & .percentage {
-            z-index: 999;
-            color: #ffffff;
-          }
         }
       }
     }

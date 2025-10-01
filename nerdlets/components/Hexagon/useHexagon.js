@@ -1,7 +1,8 @@
 // Hooks
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 // Utils
+import isFunction from "../../utils/isFunction";
 import isValidNumber from "../../utils/isValidNumber";
 
 const DELAY = 300;
@@ -10,10 +11,32 @@ const DELAY = 300;
  * Hook for implements logic Hexagon component
  * @param {object} params Params
  */
-export default function useHexagon({ percentage }) {
+export default function useHexagon({ onClick, percentage, onViewDetails }) {
   const [pct, setPct] = useState(0);
   const [isShowingTooltip, setShowingTooltip] = useState(false);
 
+  // Callback for hide tooltip
+  const hideTooltip = useCallback(() => setShowingTooltip(false), []);
+
+  // Click event in hexagon
+  const handleClickHexagon = useCallback(() => {
+    setShowingTooltip(true);
+
+    // Validate 'onClick' param
+    if (!isFunction(onClick)) return;
+    onClick();
+  }, [onClick]);
+
+  // Click event in hexagon
+  const handleViewDetails = useCallback(() => {
+    hideTooltip();
+
+    // Validate 'onViewDetails' param
+    if (!isFunction(onViewDetails)) return;
+    onViewDetails();
+  }, [onViewDetails]);
+
+  // Effect for update hexagon percentage
   useEffect(() => {
     let mounted = true;
 
@@ -34,7 +57,9 @@ export default function useHexagon({ percentage }) {
   return {
     pct: pct,
     isShowingTooltip: isShowingTooltip,
-    showTooltip: () => setShowingTooltip(true),
-    hideTooltip: () => setShowingTooltip(false),
+
+    hideTooltip: hideTooltip,
+    handleViewDetails: handleViewDetails,
+    handleClickHexagon: handleClickHexagon,
   };
 }

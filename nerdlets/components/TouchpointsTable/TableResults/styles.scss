@@ -1,0 +1,11 @@
+// Styles
+@import "TableResult/styles.scss";
+
+%touchpointsTable_results {
+  & .table-results {
+    border: 1px solid #bdbdbd;
+    border-top: 0;
+
+    @extend %touchpointsTableResults_result;
+  }
+}

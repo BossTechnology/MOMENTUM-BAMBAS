@@ -1,0 +1,20 @@
+%tiresModalContent_topContent {
+  & .top-content {
+    & .box {
+      column-gap: 0.75rem;
+
+      & .title,
+      & .hours-of-life {
+        font-size: 17px;
+        line-height: 21px;
+      }
+
+      & svg {
+        min-width: 40px;
+        max-width: 40px;
+        min-height: 40px;
+        max-height: 40px;
+      }
+    }
+  }
+}

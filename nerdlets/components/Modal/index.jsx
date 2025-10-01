@@ -4,14 +4,14 @@ import PropTypes from "prop-types";
 
 // Components
 import Portal from "./Portal";
-import Button from "components/Button";
-import Times from "components/icons/times";
+import Button from "../Button";
+import TimesIcon from "../icons/times-icon";
 
 // Hooks
 import useHideModalOnPressEscape from "./useHideModalOnPressEscape";
 
 // Utils
-import classnames from "utils/classnames";
+import classnames from "../../utils/classnames";
 
 function Modal({
   onHide,
@@ -41,7 +41,7 @@ function Modal({
         <div className="modal-content">
           {isShowingCloseIcon && (
             <Button
-              icon={<Times />}
+              icon={<TimesIcon />}
               onClick={onHide}
               className="d-flex justify-content-end btn-close-modal"
             />

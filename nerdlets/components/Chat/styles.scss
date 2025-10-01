@@ -1,0 +1,19 @@
+.chat-box {
+  padding: 1.25rem;
+  min-height: 250px;
+  background-color: #404040;
+
+  & .comment-box {
+    &.ai-message {
+      & .message {
+        color: #ffffff;
+      }
+    }
+
+    &.user-message {
+      & .message {
+        color: #afedf9;
+      }
+    }
+  }
+}

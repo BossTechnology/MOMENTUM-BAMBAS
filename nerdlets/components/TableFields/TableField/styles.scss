@@ -1,0 +1,15 @@
+%tableFields_tableField {
+  & .table-field-item {
+    color: #ffffff;
+    min-height: 40px;
+
+    & .box {
+      & svg {
+        min-width: 13px;
+        max-width: 13px;
+        min-height: 13px;
+        max-height: 13px;
+      }
+    }
+  }
+}

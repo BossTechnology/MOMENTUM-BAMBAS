@@ -1,0 +1,138 @@
+{
+  "hoursOfLife": 24,
+  "kpi": {
+    "total": 7,
+    "status": ""
+  },
+  "riskMeter": {
+    "value": 100,
+    "percentage": 0
+  },
+  "answersEngine": [
+    {
+      "value": "41%",
+      "status": "low",
+      "label": "Registro registro"
+    },
+    {
+      "value": "32%",
+      "status": "low",
+      "label": "Vista aplicación columna"
+    },
+    {
+      "value": "53%",
+      "status": "high",
+      "label": "Transacción evento"
+    },
+    {
+      "value": "66%",
+      "status": "low",
+      "label": "Registro rendimiento columna alerta consulta"
+    },
+    {
+      "value": "73%",
+      "status": "low",
+      "label": "Entidad entidad"
+    },
+    {
+      "value": "63%",
+      "status": "low",
+      "label": "Servicios usuario evento columna servicios"
+    },
+    {
+      "value": "14%",
+      "status": "high",
+      "label": "Usuario cloud dato motor"
+    }
+  ],
+  "touchpoints": [
+    {
+      "_id": "35d6b460-bf91-4e7d-a5cf-c3a766790a51",
+      "conditions": "Red",
+      "issues": 0,
+      "incidents": 1,
+      "anomalies": 1,
+      "status": "warning",
+      "name": "Evento error",
+      "weight": "hvy",
+      "query": "SELECT average(duration) FROM Log WHERE name LIKE 'WebTransaction/%' FACET name SINCE 24 hours ago"
+    },
+    {
+      "_id": "47a4b74d-7f76-461e-896d-14f90a3830b4",
+      "conditions": "Error error servicio",
+      "issues": 0,
+      "incidents": 1,
+      "anomalies": 1,
+      "status": "success",
+      "name": "Evento sistema",
+      "weight": "lht",
+      "query": "SELECT sum(errorCount) FROM PageView WHERE name LIKE 'WebTransaction/%' FACET appName SINCE 30 minutes ago"
+    },
+    {
+      "_id": "35cdafc1-a7df-4f0f-a8fd-f8369f7dfc3e",
+      "conditions": "Error estado",
+      "issues": 0,
+      "incidents": 1,
+      "anomalies": 1,
+      "status": "queued",
+      "name": "Cloud respuesta sistema servicios",
+      "weight": "hvy",
+      "query": "SELECT percentile(duration, 95) FROM Transaction WHERE appName LIKE 'web-%' FACET appName SINCE 30 minutes ago"
+    },
+    {
+      "_id": "a2b67cdc-1be8-4d3e-9f64-e99d7e993083",
+      "conditions": "Transacción consulta",
+      "issues": 0,
+      "incidents": 1,
+      "anomalies": 1,
+      "status": "success",
+      "name": "Panel aplicación servicio registro",
+      "weight": "hvy",
+      "query": "SELECT rate(count(*), 1 minute) FROM Span WHERE entityGuid IS NOT NULL SINCE 24 hours ago"
+    },
+    {
+      "_id": "39dd785a-9836-48e6-b38d-bf5b0291c5b5",
+      "conditions": "Tiempo entidad servicio",
+      "issues": 0,
+      "incidents": 1,
+      "anomalies": 1,
+      "status": "danger",
+      "name": "Entidad registro consulta error",
+      "weight": "hvy",
+      "query": "SELECT sum(errorCount) FROM Log WHERE error IS true SINCE 1 hour ago"
+    },
+    {
+      "_id": "4764b0a7-044d-414e-8a8b-f066aeb58247",
+      "conditions": "Rendimiento",
+      "issues": 0,
+      "incidents": 1,
+      "anomalies": 1,
+      "status": "danger",
+      "name": "Rendimiento métrica",
+      "weight": "lht",
+      "query": "SELECT sum(errorCount) FROM SyntheticCheck WHERE name LIKE 'WebTransaction/%' FACET name SINCE 24 hours ago"
+    },
+    {
+      "_id": "0e3f9cbe-564f-4d67-8510-ce9226f9286e",
+      "conditions": "Motor",
+      "issues": 0,
+      "incidents": 1,
+      "anomalies": 1,
+      "status": "danger",
+      "name": "Métrica usuario entidad",
+      "weight": "hvy",
+      "query": "SELECT rate(count(*), 1 minute) FROM SyntheticCheck WHERE entityGuid IS NOT NULL FACET name SINCE 30 minutes ago"
+    },
+    {
+      "_id": "7a6dd78a-0d2b-43b8-91f2-6c0abb036f2f",
+      "conditions": "Registro sistema agente",
+      "issues": 0,
+      "incidents": 1,
+      "anomalies": 1,
+      "status": "queued",
+      "name": "Entidad servicio",
+      "weight": "lht",
+      "query": "SELECT sum(errorCount) FROM Log WHERE duration > 0.5 FACET name SINCE 1 hour ago"
+    }
+  ]
+}

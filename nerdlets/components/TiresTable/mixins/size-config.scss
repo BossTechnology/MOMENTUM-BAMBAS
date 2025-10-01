@@ -1,0 +1,20 @@
+%touchpointsTable_sizeConfig {
+  & .alert-field {
+    width: 20%;
+  }
+
+  & .conditions-field {
+    width: 22%;
+  }
+
+  & .status-field {
+    width: 14%;
+  }
+
+  & .issues-field,
+  & .notify-field,
+  & .incidents-field,
+  & .anomalies-field {
+    width: 11%;
+  }
+}

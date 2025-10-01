@@ -1,0 +1,159 @@
+{
+  "hoursOfLife": 24,
+  "kpi": {
+    "total": 7,
+    "status": "high"
+  },
+  "riskMeter": {
+    "value": 100,
+    "percentage": 100
+  },
+  "answersEngine": [
+    {
+      "value": "35%",
+      "status": "low",
+      "label": "Columna consulta"
+    },
+    {
+      "value": "78%",
+      "status": "low",
+      "label": "Cloud respuesta entidad respuesta consulta"
+    },
+    {
+      "value": "43%",
+      "status": "low",
+      "label": "Transacción error"
+    },
+    {
+      "value": "65%",
+      "status": "low",
+      "label": "Vista columna"
+    },
+    {
+      "value": "35%",
+      "status": "low",
+      "label": "Métrica error red panel aplicación"
+    },
+    {
+      "value": "44%",
+      "status": "low",
+      "label": "Evento estado"
+    },
+    {
+      "value": "46%",
+      "status": "low",
+      "label": "Servicios consulta"
+    },
+    {
+      "value": "53%",
+      "status": "high",
+      "label": "Estado dato"
+    },
+    {
+      "value": "73%",
+      "status": "high",
+      "label": "Usuario alerta usuario"
+    }
+  ],
+  "touchpoints": [
+    {
+      "_id": "ca9f42a4-e5d5-4926-a8c7-495992f13e09",
+      "conditions": "Evento",
+      "issues": 0,
+      "incidents": 1,
+      "anomalies": 1,
+      "status": "success",
+      "name": "Evento métrica",
+      "weight": "med",
+      "query": "SELECT rate(count(*), 1 minute) FROM SyntheticCheck WHERE httpResponseCode LIKE '5%%' FACET appName SINCE 30 minutes ago"
+    },
+    {
+      "_id": "3a0e6a05-9b10-4c02-997e-495a7769f357",
+      "conditions": "Vista",
+      "issues": 0,
+      "incidents": 1,
+      "anomalies": 1,
+      "status": "success",
+      "name": "Consulta alerta consulta motor usuario",
+      "weight": "hvy",
+      "query": "SELECT percentile(duration, 95) FROM Span FACET name SINCE 1 hour ago"
+    },
+    {
+      "_id": "4eb8ad2a-c0bc-4de8-9699-e4492d6e6004",
+      "conditions": "Entidad",
+      "issues": 0,
+      "incidents": 1,
+      "anomalies": 1,
+      "status": "danger",
+      "name": "Alerta cloud servicio vista alerta",
+      "weight": "lht",
+      "query": "SELECT count(*) FROM SyntheticCheck WHERE httpResponseCode LIKE '5%%' FACET name SINCE 24 hours ago"
+    },
+    {
+      "_id": "b5aa7487-606a-4aa3-926b-bec5ae7787f3",
+      "conditions": "Cloud servicio dato",
+      "issues": 0,
+      "incidents": 1,
+      "anomalies": 1,
+      "status": "success",
+      "name": "Entidad panel registro motor columna",
+      "weight": "med",
+      "query": "SELECT percentile(duration, 95) FROM Transaction FACET name SINCE 30 minutes ago"
+    },
+    {
+      "_id": "296c2622-3dde-48a1-a573-0d692627c258",
+      "conditions": "Agente métrica",
+      "issues": 0,
+      "incidents": 1,
+      "anomalies": 1,
+      "status": "warning",
+      "name": "Servicio tiempo motor sistema",
+      "weight": "hvy",
+      "query": "SELECT percentile(duration, 95) FROM Span WHERE error IS true SINCE 1 hour ago"
+    },
+    {
+      "_id": "43cba371-961b-484e-a4f6-df9484907dd3",
+      "conditions": "Cloud aplicación error",
+      "issues": 0,
+      "incidents": 1,
+      "anomalies": 1,
+      "status": "queued",
+      "name": "Dato tiempo red motor aplicación",
+      "weight": "lht",
+      "query": "SELECT sum(errorCount) FROM PageView WHERE appName LIKE 'web-%' FACET appName SINCE 30 minutes ago"
+    },
+    {
+      "_id": "18dcd1f8-441b-4738-8f02-0976c6aee41d",
+      "conditions": "Entidad aplicación",
+      "issues": 0,
+      "incidents": 1,
+      "anomalies": 1,
+      "status": "success",
+      "name": "Cloud columna",
+      "weight": "med",
+      "query": "SELECT sum(errorCount) FROM PageView WHERE name LIKE 'WebTransaction/%' SINCE 30 minutes ago"
+    },
+    {
+      "_id": "e678dc31-52a3-4f73-a81e-bd130f4575e8",
+      "conditions": "Motor dato",
+      "issues": 0,
+      "incidents": 1,
+      "anomalies": 1,
+      "status": "danger",
+      "name": "Aplicación aplicación consulta",
+      "weight": "med",
+      "query": "SELECT count(*) FROM Span FACET appName SINCE 30 minutes ago"
+    },
+    {
+      "_id": "09878a8d-8fcc-4322-a993-252324d72a61",
+      "conditions": "Motor cloud",
+      "issues": 0,
+      "incidents": 1,
+      "anomalies": 1,
+      "status": "success",
+      "name": "Servicio sistema usuario respuesta",
+      "weight": "hvy",
+      "query": "SELECT count(*) FROM SyntheticCheck WHERE error IS true SINCE 1 hour ago"
+    }
+  ]
+}

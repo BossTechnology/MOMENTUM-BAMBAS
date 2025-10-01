@@ -1,0 +1,32 @@
+{
+  "kpi": {
+    "total": 23,
+    "status": "low"
+  },
+  "riskMeter": {
+    "value": 0,
+    "percentage": 0
+  },
+  "answersEngine": [
+    {
+      "value": "62%",
+      "status": "low",
+      "label": "Vista error"
+    },
+    {
+      "value": "77%",
+      "status": "high",
+      "label": "Alerta aplicación transacción"
+    },
+    {
+      "value": "59%",
+      "status": "high",
+      "label": "Cloud servicio error vista dato"
+    },
+    {
+      "value": "15%",
+      "status": "low",
+      "label": "Registro registro columna respuesta"
+    }
+  ]
+}

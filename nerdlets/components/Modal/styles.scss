@@ -66,25 +66,28 @@
     justify-content: center;
 
     & .modal-content {
+      padding: 1rem;
       min-width: initial;
       max-width: initial;
+
+      & > .content {
+        padding: 0;
+      }
 
       & .btn-close-modal {
         padding: 0;
         border: none;
         left: initial;
-        margin-top: 10px;
-        margin-right: 7px;
         position: relative;
         min-width: initial;
         min-height: initial;
         background-color: transparent;
 
         & svg {
-          width: 10px;
-          height: 10px;
-          min-width: 10px;
-          min-height: 10px;
+          width: 11px;
+          height: 11px;
+          min-width: 11px;
+          min-height: 11px;
         }
       }
     }

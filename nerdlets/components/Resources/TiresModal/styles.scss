@@ -1,0 +1,15 @@
+// Styles
+@import "Content/styles.scss";
+
+.tires-modal {
+  & .modal-content {
+    max-width: 900px !important;
+
+    & > .content {
+      padding-top: 1.25rem;
+      padding-right: 0.75rem;
+
+      @extend %tiresModal_content;
+    }
+  }
+}

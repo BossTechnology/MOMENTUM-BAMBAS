@@ -1,0 +1,74 @@
+{
+  "hoursOfLife": 24,
+  "kpi": {
+    "total": 7,
+    "status": "high"
+  },
+  "riskMeter": {
+    "value": 100,
+    "percentage": 100
+  },
+  "answersEngine": [
+    {
+      "value": "38%",
+      "status": "high",
+      "label": "Rendimiento usuario módulo aplicación motor"
+    },
+    {
+      "value": "24%",
+      "status": "low",
+      "label": "Métrica módulo"
+    },
+    {
+      "value": "49%",
+      "status": "high",
+      "label": "Cloud módulo dato vista error"
+    }
+  ],
+  "touchpoints": [
+    {
+      "_id": "914bf554-5d63-40ca-809d-18b96ad2b9fe",
+      "conditions": "Transacción",
+      "issues": 0,
+      "incidents": 1,
+      "anomalies": 1,
+      "status": "danger",
+      "name": "Alerta aplicación",
+      "weight": "hvy",
+      "query": "SELECT count(*) FROM PageView WHERE error IS true FACET appName SINCE 1 hour ago"
+    },
+    {
+      "_id": "48a3664c-fbf7-4b37-8b98-5d99f3b4fce3",
+      "conditions": "Panel servicio",
+      "issues": 0,
+      "incidents": 1,
+      "anomalies": 1,
+      "status": "success",
+      "name": "Registro módulo dato rendimiento",
+      "weight": "hvy",
+      "query": "SELECT average(duration) FROM Log FACET appName SINCE 24 hours ago"
+    },
+    {
+      "_id": "682c8c85-b2d1-496a-aa9b-fa5cf5b90e0c",
+      "conditions": "Cloud módulo",
+      "issues": 0,
+      "incidents": 1,
+      "anomalies": 1,
+      "status": "queued",
+      "name": "Entidad servicios",
+      "weight": "lht",
+      "query": "SELECT count(*) FROM Log WHERE error IS true FACET name SINCE 30 minutes ago"
+    },
+    {
+      "_id": "20e155f7-2c8e-4e0d-afa9-8ac0baa4ef1e",
+      "conditions": "Transacción métrica error",
+      "issues": 0,
+      "incidents": 1,
+      "anomalies": 1,
+      "status": "success",
+      "name": "Aplicación estado cloud servicios alerta",
+      "weight": "hvy",
+      "query": "SELECT rate(count(*), 1 minute) FROM Transaction WHERE name LIKE 'WebTransaction/%' FACET appName SINCE 24 hours ago"
+    }
+  ]
+}

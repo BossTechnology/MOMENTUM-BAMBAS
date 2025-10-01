@@ -7,6 +7,10 @@
 @import "../containers/styles.scss";
 @import "../components/styles.scss";
 
+// Mixins styles
+@import "./mixins/button.scss";
+@import "./mixins/little-scrollbar.scss";
+
 body,
 html,
 #root {
@@ -19,5 +23,5 @@ html,
 
 .mask {
   z-index: 100;
-  background-color: rgb(9, 9, 9, 0.65);
+  background-color: rgb(9, 9, 9, 0.75);
 }

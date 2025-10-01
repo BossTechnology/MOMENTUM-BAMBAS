@@ -1,0 +1,30 @@
+// Styles
+@import "TopContent/styles";
+
+%tiresModal_content {
+  & .main-content {
+    @extend %tiresModalContent_topContent;
+
+    & .scrollbar-box {
+      max-height: calc(100vh - 15rem);
+    }
+
+    & .top-content {
+      padding-right: 1.15rem;
+    }
+
+    & .comment-form,
+    & .scrollbar-box {
+      padding-right: 0.35rem;
+    }
+
+    & .comment-form {
+      margin-top: 1rem;
+
+      & .btn-add-comment {
+        max-width: 150px;
+        margin-left: auto;
+      }
+    }
+  }
+}

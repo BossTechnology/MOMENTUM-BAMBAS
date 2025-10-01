@@ -1,0 +1,15 @@
+// Styles
+@import "Content/styles.scss";
+
+.touchpoints-modal {
+  & .modal-content {
+    max-width: 800px !important;
+
+    & > .content {
+      padding-top: 1.25rem;
+      padding-right: 0.75rem;
+
+      @extend %touchpointsModal_content;
+    }
+  }
+}

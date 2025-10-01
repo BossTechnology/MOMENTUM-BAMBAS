@@ -1,11 +1,13 @@
 %resource_kpi {
   & .kpi-box {
+    min-height: 40px;
     padding: 0.35rem 0;
     border-radius: 12px;
     border: 1px solid #f2f2f2;
 
     & .total {
       font-size: 22px;
+      margin-right: -35px;
     }
 
     & .unit-box {

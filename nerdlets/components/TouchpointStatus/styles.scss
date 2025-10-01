@@ -1,0 +1,22 @@
+.touchpoint-status {
+  min-width: 24px;
+  max-width: 24px;
+  min-height: 24px;
+  max-height: 24px;
+
+  &.queued {
+    background-color: #d4d4d4;
+  }
+
+  &.danger {
+    background-color: #ff9daf;
+  }
+
+  &.warning {
+    background-color: #ffeca1;
+  }
+
+  &.success {
+    background-color: #adf2b6;
+  }
+}

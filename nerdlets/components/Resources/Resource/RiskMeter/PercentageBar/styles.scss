@@ -1,0 +1,13 @@
+%riskMeter_percentageBar {
+  & .percentage-box {
+    min-width: 45px;
+    max-height: 35px;
+    background-color: #374c6c;
+    padding: 0.7rem 0.3rem 0.7rem 0.75rem;
+
+    & .percentage {
+      z-index: 999;
+      color: #ffffff;
+    }
+  }
+}

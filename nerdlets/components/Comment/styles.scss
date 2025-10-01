@@ -1,0 +1,37 @@
+.comment-box {
+  column-gap: 0.75rem;
+
+  & .message {
+    color: #0088ff;
+    line-height: 18px;
+    white-space: pre-line;
+    word-break: break-word;
+    text-wrap-style: pretty;
+  }
+
+  & .user-logo-box {
+    min-width: 38px;
+    max-width: 38px;
+    min-height: 38px;
+    max-height: 38px;
+    background-color: #0088ff;
+
+    & .user-first-letter-name {
+      font-size: 14px;
+      color: #ffffff;
+    }
+  }
+
+  &.ai-message {
+    & .user-logo-box {
+      background-color: #ffffff;
+
+      & svg {
+        min-width: 25px;
+        max-width: 25px;
+        min-height: 25px;
+        max-height: 25px;
+      }
+    }
+  }
+}

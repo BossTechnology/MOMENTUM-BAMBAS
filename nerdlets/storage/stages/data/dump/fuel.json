@@ -1,0 +1,63 @@
+{
+  "kpi": {
+    "total": 35,
+    "status": "low"
+  },
+  "riskMeter": {
+    "value": 0,
+    "percentage": 100
+  },
+  "answersEngine": [
+    {
+      "value": "4%",
+      "status": "high",
+      "label": "Tiempo entidad red transacción registro"
+    }
+  ],
+  "touchpoints": [
+    {
+      "_id": "07b81fed-61cc-4c58-b141-572352eeb86e",
+      "adn": "Tiempo servicio",
+      "weight": "med",
+      "name": "Métrica vista panel sistema transacción",
+      "query": "SELECT rate(count(*), 1 minute) FROM SyntheticCheck WHERE error IS true SINCE 30 minutes ago",
+      "status": "success",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "c904080f-bf2d-4403-a328-89b9a6d5a4cb",
+      "adn": "Consulta cloud",
+      "weight": "lht",
+      "name": "Evento cloud rendimiento",
+      "query": "SELECT count(*) FROM Transaction WHERE appName LIKE 'web-%' FACET appName SINCE 1 hour ago",
+      "status": "success",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "d0dc88d8-26b0-45dc-817c-d18cab329fc7",
+      "adn": "Estado panel sistema",
+      "weight": "hvy",
+      "name": "Servicios evento usuario estado entidad",
+      "query": "SELECT sum(errorCount) FROM Transaction SINCE 1 hour ago",
+      "status": "warning",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "b3ba53d4-e7e5-40f0-9507-ef28b0bc62d7",
+      "adn": "Estado entidad cloud",
+      "weight": "hvy",
+      "name": "Registro estado",
+      "query": "SELECT sum(errorCount) FROM Log WHERE duration > 0.5 FACET name SINCE 1 hour ago",
+      "status": "warning",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    }
+  ]
+}

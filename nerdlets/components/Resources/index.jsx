@@ -1,34 +1,45 @@
 // Components
 import Resource from "./Resource";
+import FuelModal from "./FuelModal";
+import TiresModal from "./TiresModal";
 
-// JSON
-import llantas from "./data/llantas.json";
-import produccion from "./data/produccion.json";
-import combustible from "./data/combustible.json";
+// Hooks
+import useResources from "./useResources";
 
 export default function Resources() {
+  const { fuelModal, tiresModal, selectedStage } = useResources();
+
   return (
     <section className="resources d-flex align-items-start">
       <Resource
-        {...combustible}
-        total={100}
-        unit="Gal/hrs"
+        {...selectedStage.fuel}
+        onClickKpi={fuelModal.show}
         title="Combustible"
+        unit="Gal/hrs"
       />
 
       <div className="separator" />
 
       <Resource
-        {...llantas}
-        total={80}
-        unit="hrs"
-        status="low"
+        {...selectedStage.tires}
+        onClickKpi={tiresModal.show}
         title="Llantas"
+        unit="hrs"
       />
 
       <div className="separator" />
 
-      <Resource {...produccion} total={5} unit="ton/hr" title="Producción" />
+      <Resource
+        {...selectedStage.production}
+        title="Producción"
+        unit="ton/hr"
+      />
+
+      {fuelModal.isShowing && <FuelModal isShowing onHide={fuelModal.hide} />}
+
+      {tiresModal.isShowing && (
+        <TiresModal isShowing onHide={tiresModal.hide} />
+      )}
     </section>
   );
 }

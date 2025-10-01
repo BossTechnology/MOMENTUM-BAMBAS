@@ -1,0 +1,14 @@
+// Styles
+@import "Content/styles.scss";
+
+.fuel-modal {
+  & .modal-content {
+    max-width: 400px !important;
+
+    @extend %fuelModal_content;
+
+    & > .content {
+      padding-right: 0.5rem;
+    }
+  }
+}

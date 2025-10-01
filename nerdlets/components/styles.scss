@@ -1,9 +1,26 @@
 // Styles
-@import "./Modal/styles.scss";
 @import "./Button/styles.scss";
+@import "./Loader/styles.scss";
 @import "./Select/styles.scss";
+@import "./InputText/styles.scss";
+@import "./EmptyResults/styles.scss";
+
+@import "./Chat/styles.scss";
+@import "./Query/styles.scss";
 @import "./Header/styles.scss";
 @import "./Hexagon/styles.scss";
 @import "./Hexagons/styles.scss";
-@import "./InputText/styles.scss";
 @import "./Resources/styles.scss";
+
+@import "./Comment/styles.scss";
+@import "./CommentForm/styles.scss";
+
+@import "./Modal/styles.scss";
+@import "./TiresTable/styles.scss";
+@import "./TableFields/styles.scss";
+
+@import "./TouchpointsModal/styles.scss";
+@import "./TouchpointsTable/styles.scss";
+@import "./TouchpointQuery/styles.scss";
+@import "./TouchpointStatus/styles.scss";
+@import "./TouchpointActions/styles.scss";

@@ -1,0 +1,8 @@
+// Styles
+@import "TableField/styles.scss";
+
+.table-fields {
+  background-color: #374c6c;
+
+  @extend %tableFields_tableField;
+}

@@ -3,9 +3,9 @@ import { memo } from "react";
 import PropTypes from "prop-types";
 
 // Utils
-import classnames from "utils/classnames";
+import classnames from "../../utils/classnames";
 
-export const DEFAULT_TITLE = "Loading data...";
+const DEFAULT_TITLE = "Loading data...";
 
 function LoaderData({ title = DEFAULT_TITLE, className }) {
   return (

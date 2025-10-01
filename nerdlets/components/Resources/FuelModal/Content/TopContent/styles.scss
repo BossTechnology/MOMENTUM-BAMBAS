@@ -1,0 +1,10 @@
+%fuelModalContent_topContent {
+  & .top-content {
+    margin-bottom: 0.75rem;
+
+    & svg {
+      min-width: 36px;
+      min-height: 36px;
+    }
+  }
+}

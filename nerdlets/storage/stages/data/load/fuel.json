@@ -1,0 +1,130 @@
+{
+  "kpi": {
+    "total": 35,
+    "status": "high"
+  },
+  "riskMeter": {
+    "value": 0,
+    "percentage": 100
+  },
+  "answersEngine": [
+    {
+      "value": "72%",
+      "status": "low",
+      "label": "Red alerta servicio métrica"
+    },
+    {
+      "value": "53%",
+      "status": "low",
+      "label": "Error tiempo"
+    },
+    {
+      "value": "87%",
+      "status": "low",
+      "label": "Transacción red aplicación agente aplicación"
+    },
+    {
+      "value": "94%",
+      "status": "high",
+      "label": "Cloud red columna servicio"
+    },
+    {
+      "value": "50%",
+      "status": "low",
+      "label": "Entidad rendimiento"
+    },
+    {
+      "value": "69%",
+      "status": "low",
+      "label": "Entidad cloud"
+    },
+    {
+      "value": "31%",
+      "status": "low",
+      "label": "Alerta motor"
+    },
+    {
+      "value": "8%",
+      "status": "low",
+      "label": "Motor entidad vista"
+    },
+    {
+      "value": "86%",
+      "status": "low",
+      "label": "Sistema red usuario"
+    },
+    {
+      "value": "92%",
+      "status": "low",
+      "label": "Respuesta columna tiempo agente"
+    }
+  ],
+  "touchpoints": [
+    {
+      "_id": "e4eae23a-013b-4fc2-a275-48043752e931",
+      "adn": "Cloud",
+      "weight": "lht",
+      "name": "Alerta estado agente evento rendimiento",
+      "query": "SELECT average(duration) FROM SyntheticCheck WHERE duration > 0.5 FACET appName SINCE 30 minutes ago",
+      "status": "success",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "02356d0f-746f-451c-a05b-5bdbef672601",
+      "adn": "Servicio registro panel",
+      "weight": "hvy",
+      "name": "Entidad red",
+      "query": "SELECT sum(errorCount) FROM PageView WHERE error IS true FACET name SINCE 1 hour ago",
+      "status": "success",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "75fcd356-c29a-46e5-8a86-0bf5a063f23a",
+      "adn": "Registro",
+      "weight": "med",
+      "name": "Agente red",
+      "query": "SELECT count(*) FROM PageView SINCE 30 minutes ago",
+      "status": "queued",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "5ac840a2-0782-4977-984f-9e83e1466d06",
+      "adn": "Estado métrica",
+      "weight": "lht",
+      "name": "Red módulo dato",
+      "query": "SELECT sum(errorCount) FROM PageView WHERE appName LIKE 'web-%' SINCE 30 minutes ago",
+      "status": "success",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "7903bcd1-111c-4dce-8251-a0e4b5cfa6e8",
+      "adn": "Módulo aplicación",
+      "weight": "med",
+      "name": "Dato registro vista",
+      "query": "SELECT sum(errorCount) FROM PageView WHERE entityGuid IS NOT NULL FACET appName SINCE 24 hours ago",
+      "status": "warning",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "5b044de3-1f8d-4b99-9f00-69e4567714bf",
+      "adn": "Entidad error",
+      "weight": "hvy",
+      "name": "Servicios aplicación evento sistema",
+      "query": "SELECT rate(count(*), 1 minute) FROM PageView WHERE error IS true SINCE 24 hours ago",
+      "status": "warning",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    }
+  ]
+}

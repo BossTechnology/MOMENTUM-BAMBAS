@@ -1,9 +1,14 @@
 // Librarys
+import { memo } from "react";
 import PropTypes from "prop-types";
-import { memo, useState } from "react";
 
 // Components
 import Marker from "./Marker";
+import DangerousBar from "./DangerousBar";
+import PercentageBar from "./PercentageBar";
+
+// Hooks
+import useRiskMeter from "./useRiskMeter";
 
 // Utils
 import generateId from "../../../../utils/generateId";
@@ -11,16 +16,13 @@ import generateId from "../../../../utils/generateId";
 const rangeId = `risk-meter-range-${generateId()}`;
 
 function RiskMeter({ value = 0, percentage = 0 }) {
-  const [rangeValue, setRangeValue] = useState(String(value));
-
-  // Get range value as numeric value
-  const rangeNumericValue = Number(rangeValue);
-
-  // Define marker position
-  const position = rangeValue === "0" ? 0.2 : rangeValue * 0.98;
-
-  // Define flags
-  const isShowingDangerousBar = rangeNumericValue < percentage;
+  const {
+    position,
+    rangeValue,
+    setRangeValue,
+    rangeNumericValue,
+    isShowingDangerousBar,
+  } = useRiskMeter({ value, percentage });
 
   return (
     <article className="risk-meter-box d-flex flex-column">
@@ -29,24 +31,14 @@ function RiskMeter({ value = 0, percentage = 0 }) {
       <div className="box shadow-box">
         <div className="track position-relative">
           <div className="inner">
-            <div
-              className="dangerous-percentage-box top-0 position-absolute d-flex align-items-center"
-              style={{
-                left: `calc(${position}% + 3px)`,
-                width: `${
-                  isShowingDangerousBar ? percentage - rangeNumericValue : 0
-                }%`,
-              }}
-            />
+            <PercentageBar percentage={percentage} />
 
-            <div
-              style={{ width: `${percentage}%` }}
-              className="percentage-box top-0 start-0 position-absolute d-flex align-items-center"
-            >
-              <span className="percentage fw-medium position-relative">
-                {percentage} %
-              </span>
-            </div>
+            <DangerousBar
+              position={position}
+              percentage={percentage}
+              isShowing={isShowingDangerousBar}
+              rangeNumericValue={rangeNumericValue}
+            />
           </div>
 
           <input

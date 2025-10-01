@@ -1,0 +1,12 @@
+.touchpoint-query {
+  min-height: 30px;
+  color: #007aff;
+  padding: 0 0.65rem;
+  border-radius: 30px;
+  border: 1px solid #007aff;
+  outline: 1px solid #007aff;
+
+  & span {
+    line-height: 20px !important;
+  }
+}

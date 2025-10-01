@@ -14,16 +14,31 @@ import useHexagon from "./useHexagon";
 import classnames from "../../utils/classnames";
 import createValidObject from "../../utils/createValidObject";
 
-function Hexagon({ icon, active, tooltip, percentage }) {
-  const { pct, showTooltip, hideTooltip, isShowingTooltip } = useHexagon({
+function Hexagon({
+  icon,
+  active,
+  tooltip,
+  onClick,
+  percentage,
+  onViewDetails,
+}) {
+  const {
+    pct,
+    hideTooltip,
+    isShowingTooltip,
+    handleViewDetails,
+    handleClickHexagon,
+  } = useHexagon({
+    onClick: onClick,
     percentage: percentage,
+    onViewDetails: onViewDetails,
   });
 
   return (
     <div
       className={classnames([
         active ? "active" : null,
-        isShowingTooltip ? "showing-tooltip" : null,
+        isShowingTooltip ? "showing-tooltip 1" : null,
         "hexagon-box d-flex align-items-center justify-content-center position-relative",
       ])}
     >
@@ -31,14 +46,18 @@ function Hexagon({ icon, active, tooltip, percentage }) {
         <HexagonContent
           icon={icon}
           percentage={percentage}
-          showTooltip={showTooltip}
+          onClick={handleClickHexagon}
         />
       </div>
 
-      <Dot />
+      <Dot percentage={percentage} />
 
       {active && isShowingTooltip && (
-        <Tooltip {...createValidObject(tooltip)} hide={hideTooltip} />
+        <Tooltip
+          {...createValidObject(tooltip)}
+          onViewDetails={handleViewDetails}
+          hide={hideTooltip}
+        />
       )}
     </div>
   );
@@ -48,6 +67,10 @@ Hexagon.propTypes = {
   icon: PropTypes.node,
   active: PropTypes.bool,
   tooltip: PropTypes.object,
+
+  onClick: PropTypes.func,
+  onViewDetails: PropTypes.func,
+
   percentage: PropTypes.number.isRequired,
 };
 

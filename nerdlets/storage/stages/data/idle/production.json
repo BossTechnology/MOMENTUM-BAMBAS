@@ -1,0 +1,22 @@
+{
+  "kpi": {
+    "total": 23,
+    "status": "high"
+  },
+  "riskMeter": {
+    "value": 0,
+    "percentage": 100
+  },
+  "answersEngine": [
+    {
+      "value": "64%",
+      "status": "high",
+      "label": "Sistema dato registro tiempo"
+    },
+    {
+      "value": "3%",
+      "status": "low",
+      "label": "Motor sistema vista registro"
+    }
+  ]
+}

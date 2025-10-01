@@ -1,0 +1,9 @@
+%touchpointsModalContent_queryView {
+  & .query-view-box {
+    row-gap: 0.75rem;
+    
+    & .btn-back {
+      max-width: 80px;
+    }
+  }
+}

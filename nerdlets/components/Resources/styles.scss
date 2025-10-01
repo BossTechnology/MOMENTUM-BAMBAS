@@ -1,5 +1,7 @@
 // Styles
 @import "./Resource/styles.scss";
+@import "./FuelModal/styles.scss";
+@import "./TiresModal/styles.scss";
 
 .resources {
   @extend %resources_resource;

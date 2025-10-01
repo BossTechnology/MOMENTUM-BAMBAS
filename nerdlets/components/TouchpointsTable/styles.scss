@@ -1,0 +1,14 @@
+// Styles
+@import "TableResults/styles.scss";
+
+// Mixins
+@import "mixins/size-config";
+
+.touchpoints-table {
+  @extend %touchpointsTable_results;
+  @extend %touchpointsTable_sizeConfig;
+
+  & .empty-results {
+    min-height: 150px;
+  }
+}

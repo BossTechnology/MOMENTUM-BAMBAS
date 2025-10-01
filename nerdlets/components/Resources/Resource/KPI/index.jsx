@@ -2,13 +2,19 @@
 import { memo } from "react";
 import PropTypes from "prop-types";
 
-// Constants
-import ArrowIcon from "../../icons/arrow-icon";
+// Utils
+import isFunction from "../../../../utils/isFunction";
 import classnames from "../../../../utils/classnames";
 
-function KPI({ unit, total, status }) {
+// Constants
+import ArrowIcon from "../../icons/arrow-icon";
+
+function KPI({ unit, total, status, onClick, titlePopup }) {
   return (
     <div
+      onClick={onClick}
+      title={titlePopup}
+      role={isFunction(onClick) ? "button" : undefined}
       className={classnames([
         status,
         "kpi-box shadow-box d-flex align-items-center px-3 colum-gap-3",
@@ -25,9 +31,12 @@ function KPI({ unit, total, status }) {
 }
 
 KPI.propTypes = {
+  total: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired,
+
   unit: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
-  total: PropTypes.number.isRequired,
+  titlePopup: PropTypes.string.isRequired,
 };
 
 export default memo(KPI);

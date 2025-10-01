@@ -25,7 +25,30 @@
   &.showing-tooltip {
     &,
     & button {
-      z-index: 1000;
+      z-index: 9999;
+    }
+
+    &.active {
+      & .dot-box {
+        background-color: #fff0b3;
+
+        & .dot {
+          background-color: #ffb300;
+          border: 3px solid #ffb300;
+        }
+      }
+
+      & .hexagon {
+        background: conic-gradient(
+          from -90deg,
+          #ffb300 0 calc(var(--pct) * 1%),
+          #ffd54f 0
+        );
+
+        & .hexagon-content {
+          background-color: #fff0b3;
+        }
+      }
     }
   }
 
@@ -33,7 +56,7 @@
     & .dot-box {
       & .dot {
         background-color: #ffc107;
-        border: 1px solid #ffc107;
+        border: 3px solid #ffc107;
       }
     }
 
@@ -51,6 +74,10 @@
   }
 
   &:not(.active) {
+    & .dot-box {
+      background-color: #ffffff;
+    }
+
     & .hexagon {
       background: conic-gradient(
         from -90deg,
@@ -67,7 +94,7 @@
     min-height: 100px;
     will-change: --pct;
     aspect-ratio: 1 / 1;
-    transition: --pct 1s ease; /* anima cuando cambie --pct */
+    transition: --pct 1s ease;
 
     clip-path: polygon(
       25% 3.5%,

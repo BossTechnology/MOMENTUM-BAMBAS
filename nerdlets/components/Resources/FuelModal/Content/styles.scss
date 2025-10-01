@@ -1,0 +1,30 @@
+// Styles
+@import "TopContent/styles";
+
+%fuelModal_content {
+  & .main-content {
+    @extend %fuelModalContent_topContent;
+
+    & .scrollbar-box {
+      overflow-y: auto;
+      max-height: 250px;
+
+      @media only screen and (min-width: 1400px) {
+        max-height: 300px;
+      }
+
+      @media only screen and (min-width: 1920px) {
+        max-height: 350px;
+      }
+
+      & > .message {
+        margin-bottom: 2rem;
+      }
+
+      &,
+      & .comment-list {
+        margin-bottom: 0.75rem;
+      }
+    }
+  }
+}

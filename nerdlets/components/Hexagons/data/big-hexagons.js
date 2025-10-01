@@ -8,6 +8,15 @@ import Truck5Icon from "../icons/truck5-icon";
 // Utils
 import generateId from "../../../utils/generateId";
 
+// Constants
+import {
+  LOAD,
+  HAUL,
+  IDLE,
+  RETURN,
+  DUMP,
+} from "../../../storage/stages/constants";
+
 const bigHexagons = [
   { active: false },
   { active: false },
@@ -17,6 +26,7 @@ const bigHexagons = [
     active: true,
     icon: <Truck1Icon />,
     percentage: 80,
+    stageId: LOAD,
     tooltip: {
       title: "TRÁNSITO CARGADO",
       message:
@@ -28,6 +38,7 @@ const bigHexagons = [
     active: true,
     percentage: 40,
     icon: <Truck2Icon />,
+    stageId: HAUL,
     tooltip: {
       title: "CARGA EN BANCO",
       message:
@@ -39,6 +50,7 @@ const bigHexagons = [
     active: true,
     icon: <Truck3Icon />,
     percentage: 20,
+    stageId: IDLE,
     tooltip: {
       title: "TRANSPORTE DE MINERAL",
       message:
@@ -50,6 +62,7 @@ const bigHexagons = [
     active: true,
     icon: <Truck4Icon />,
     percentage: 100,
+    stageId: RETURN,
     tooltip: {
       title: "TRÁNSITO VACÍO / RETORNO",
       message:
@@ -61,6 +74,7 @@ const bigHexagons = [
     active: true,
     icon: <Truck5Icon />,
     percentage: 35,
+    stageId: DUMP,
     tooltip: {
       title: "DESCARGA / VOLTEO",
       message:

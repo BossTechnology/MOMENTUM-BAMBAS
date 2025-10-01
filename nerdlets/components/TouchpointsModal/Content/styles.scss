@@ -1,0 +1,38 @@
+// Styles
+@import "QueryView/styles";
+@import "TopContent/styles";
+
+%touchpointsModal_content {
+  & .main-content {
+    @extend %touchpointsModalContent_queryView;
+    @extend %touchpointsModalContent_topContent;
+
+    & .scrollbar-box {
+      &.chat {
+        max-height: calc(100vh - 14rem);
+      }
+
+      &.query {
+        max-height: calc(100vh - 17.25rem);
+      }
+    }
+
+    & .top-content {
+      padding-right: 1.15rem;
+    }
+
+    & .comment-form,
+    & .scrollbar-box {
+      padding-right: 0.35rem;
+    }
+
+    & .comment-form {
+      margin-top: 1rem;
+
+      & .btn-add-comment {
+        max-width: 150px;
+        margin-left: auto;
+      }
+    }
+  }
+}

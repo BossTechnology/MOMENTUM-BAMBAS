@@ -1,0 +1,225 @@
+{
+  "kpi": {
+    "total": 35,
+    "status": ""
+  },
+  "riskMeter": {
+    "value": 0,
+    "percentage": 0
+  },
+  "answersEngine": [
+    {
+      "value": "1%",
+      "status": "high",
+      "label": "Cloud motor columna registro"
+    },
+    {
+      "value": "5%",
+      "status": "high",
+      "label": "Cloud error red dato"
+    },
+    {
+      "value": "88%",
+      "status": "high",
+      "label": "Panel aplicación rendimiento respuesta"
+    },
+    {
+      "value": "22%",
+      "status": "low",
+      "label": "Agente tiempo"
+    },
+    {
+      "value": "4%",
+      "status": "high",
+      "label": "Sistema transacción"
+    },
+    {
+      "value": "96%",
+      "status": "high",
+      "label": "Aplicación alerta respuesta"
+    },
+    {
+      "value": "90%",
+      "status": "low",
+      "label": "Evento registro vista métrica"
+    },
+    {
+      "value": "43%",
+      "status": "high",
+      "label": "Estado entidad"
+    },
+    {
+      "value": "60%",
+      "status": "high",
+      "label": "Estado módulo alerta consulta"
+    },
+    {
+      "value": "99%",
+      "status": "low",
+      "label": "Cloud respuesta cloud dato rendimiento"
+    },
+    {
+      "value": "65%",
+      "status": "high",
+      "label": "Estado evento estado"
+    },
+    {
+      "value": "53%",
+      "status": "low",
+      "label": "Alerta transacción columna"
+    },
+    {
+      "value": "43%",
+      "status": "high",
+      "label": "Red vista"
+    },
+    {
+      "value": "98%",
+      "status": "low",
+      "label": "Entidad vista"
+    },
+    {
+      "value": "18%",
+      "status": "high",
+      "label": "Alerta tiempo usuario"
+    },
+    {
+      "value": "81%",
+      "status": "high",
+      "label": "Estado consulta tiempo dato servicios"
+    },
+    {
+      "value": "89%",
+      "status": "high",
+      "label": "Servicio dato alerta"
+    },
+    {
+      "value": "32%",
+      "status": "high",
+      "label": "Panel dato agente motor"
+    }
+  ],
+  "touchpoints": [
+    {
+      "_id": "a5cf288e-3267-4049-9fd3-35d79a74f617",
+      "adn": "Módulo",
+      "weight": "lht",
+      "name": "Servicios cloud servicio entidad módulo",
+      "query": "SELECT count(*) FROM PageView WHERE duration > 0.5 FACET name SINCE 30 minutes ago",
+      "status": "queued",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "a7bb2186-2cc3-4c7b-bf02-7744cef6e1a3",
+      "adn": "Tiempo",
+      "weight": "med",
+      "name": "Cloud módulo",
+      "query": "SELECT rate(count(*), 1 minute) FROM Log WHERE name LIKE 'WebTransaction/%' SINCE 1 hour ago",
+      "status": "danger",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "34acf3e5-a187-428c-a008-e588b2d42724",
+      "adn": "Sistema motor",
+      "weight": "lht",
+      "name": "Servicios tiempo",
+      "query": "SELECT sum(errorCount) FROM PageView WHERE name LIKE 'WebTransaction/%' SINCE 24 hours ago",
+      "status": "warning",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "574929b5-6bac-49d8-bfe1-b1c9fa667ec5",
+      "adn": "Transacción respuesta",
+      "weight": "med",
+      "name": "Alerta sistema",
+      "query": "SELECT rate(count(*), 1 minute) FROM Span WHERE entityGuid IS NOT NULL SINCE 24 hours ago",
+      "status": "queued",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "4e008e6b-e9c2-42dc-ab88-5934697bc1f0",
+      "adn": "Servicios registro",
+      "weight": "med",
+      "name": "Motor métrica servicio consulta consulta",
+      "query": "SELECT count(*) FROM Transaction WHERE error IS true SINCE 1 hour ago",
+      "status": "warning",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "2f54d466-78a5-48f6-bbd8-74e293ee1ef6",
+      "adn": "Tiempo rendimiento",
+      "weight": "med",
+      "name": "Columna consulta evento servicio",
+      "query": "SELECT percentile(duration, 95) FROM PageView WHERE error IS true FACET name SINCE 24 hours ago",
+      "status": "queued",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "2d5ecf96-eec1-4cf6-8e92-cb6f639cd8d4",
+      "adn": "Registro sistema",
+      "weight": "lht",
+      "name": "Usuario evento rendimiento columna",
+      "query": "SELECT rate(count(*), 1 minute) FROM Span WHERE name LIKE 'WebTransaction/%' FACET name SINCE 1 hour ago",
+      "status": "warning",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "fb90256d-8097-4675-915e-3877b1a387c1",
+      "adn": "Servicios aplicación servicios",
+      "weight": "hvy",
+      "name": "Dato módulo consulta",
+      "query": "SELECT percentile(duration, 95) FROM Log WHERE appName LIKE 'web-%' SINCE 30 minutes ago",
+      "status": "danger",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "30e4581b-121a-4c4a-b42d-c55e76c430d2",
+      "adn": "Entidad",
+      "weight": "lht",
+      "name": "Dato servicio dato error",
+      "query": "SELECT average(duration) FROM SyntheticCheck WHERE name LIKE 'WebTransaction/%' FACET name SINCE 24 hours ago",
+      "status": "danger",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "5a19cf6c-3115-4e73-907e-2aebc06001e1",
+      "adn": "Servicio respuesta dato",
+      "weight": "lht",
+      "name": "Estado evento entidad respuesta",
+      "query": "SELECT percentile(duration, 95) FROM Transaction WHERE entityGuid IS NOT NULL FACET appName SINCE 30 minutes ago",
+      "status": "warning",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    },
+    {
+      "_id": "ac1210af-0de9-4017-b7af-50bc151b7e35",
+      "adn": "Estado módulo",
+      "weight": "hvy",
+      "name": "Consulta vista error",
+      "query": "SELECT sum(errorCount) FROM PageView WHERE duration > 0.5 SINCE 30 minutes ago",
+      "status": "warning",
+      "issues": 0,
+      "incidents": 0,
+      "anomalies": 0
+    }
+  ]
+}
