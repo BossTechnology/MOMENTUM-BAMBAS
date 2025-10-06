@@ -2,16 +2,15 @@
 import { create } from "zustand";
 
 // Utils
-import isValidString from "../../utils/isValidString";
+import isValidArray from "../../utils/isValidArray";
 import isValidObject from "../../utils/isValidObject";
-import createValidObject from "../../utils/createValidObject";
 
 // Constants
-import { stages } from "./constants";
+import hexagonLists from "./data/hexagon-lists";
 
 const useStages = create((set) => ({
-  stages: stages,
   selectedHexagon: {},
+  hexagonLists: hexagonLists,
 
   // Callback for select specific hexagon
   selectHexagon: (hexagon) => {
@@ -24,20 +23,14 @@ const useStages = create((set) => ({
     }));
   },
 
-  // Callback for update specific stage
-  updateStage: (params) => {
-    const { stageId, stageData } = createValidObject(params);
-
-    // Validate params
-    if (!isValidString(stageId) || !isValidObject(stageData)) return;
+  // Callback for set hexagons lists
+  setHexagonLists: (newHexagonLists) => {
+    // Validate 'newHexagonLists' param
+    if (!isValidArray(newHexagonLists)) return;
 
     return set((state) => ({
       ...state,
-
-      stages: {
-        ...state.stages,
-        [stageId]: { ...state[stageId], ...stageData },
-      },
+      hexagonLists: newHexagonLists,
     }));
   },
 }));

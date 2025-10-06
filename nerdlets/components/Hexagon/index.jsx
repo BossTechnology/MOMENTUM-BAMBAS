@@ -16,9 +16,10 @@ import createValidObject from "../../utils/createValidObject";
 
 function Hexagon({
   icon,
+  name,
   active,
-  tooltip,
   onClick,
+  aiMessage,
   percentage,
   onViewDetails,
 }) {
@@ -50,11 +51,12 @@ function Hexagon({
         />
       </div>
 
-      <Dot percentage={percentage} />
+      <Dot active={active} percentage={percentage} />
 
       {active && isShowingTooltip && (
         <Tooltip
-          {...createValidObject(tooltip)}
+          title={name}
+          message={aiMessage}
           onViewDetails={handleViewDetails}
           hide={hideTooltip}
         />

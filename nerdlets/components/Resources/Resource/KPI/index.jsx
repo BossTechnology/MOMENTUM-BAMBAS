@@ -3,13 +3,17 @@ import { memo } from "react";
 import PropTypes from "prop-types";
 
 // Utils
-import isFunction from "../../../../utils/isFunction";
 import classnames from "../../../../utils/classnames";
+import isFunction from "../../../../utils/isFunction";
+import isValidNumber from "../../../../utils/isValidNumber";
 
 // Constants
 import ArrowIcon from "../../icons/arrow-icon";
 
 function KPI({ unit, total, status, onClick, titlePopup }) {
+  // Check if has total
+  const hasTotal = isValidNumber(total);
+
   return (
     <div
       onClick={onClick}
@@ -20,7 +24,9 @@ function KPI({ unit, total, status, onClick, titlePopup }) {
         "kpi-box shadow-box d-flex align-items-center px-3 colum-gap-3",
       ])}
     >
-      <span className="total w-100 fw-bold d-block text-center">{total}</span>
+      <span className="total w-100 fw-bold d-block text-center">
+        {hasTotal ? total : 0}
+      </span>
 
       <div className="unit-box d-flex align-items-center">
         {status && <ArrowIcon />}

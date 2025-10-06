@@ -1,6 +1,6 @@
 // Hooks
 import useShowModal from "../../hooks/useShowModal";
-import useGetSelectedStage from "../../storage/stages/useGetSelectedStage";
+import useGetSelectedHexagon from "../../context/stages/useGetSelectedHexagon";
 
 /**
  * Hook for implements logic Resources component
@@ -8,11 +8,11 @@ import useGetSelectedStage from "../../storage/stages/useGetSelectedStage";
 export default function useResources() {
   const fuelModal = useShowModal();
   const tiresModal = useShowModal();
-  const selectedStage = useGetSelectedStage();
+  const selectedHexagon = useGetSelectedHexagon();
 
   return {
     fuelModal: fuelModal,
     tiresModal: tiresModal,
-    selectedStage: selectedStage,
+    selectedHexagon: selectedHexagon,
   };
 }

@@ -5,12 +5,12 @@ import PropTypes from "prop-types";
 // Utils
 import classnames from "../../../utils/classnames";
 
-function Dot({ percentage }) {
+function Dot({ active, percentage }) {
   return (
     <div
       className={classnames([
         "dot-box d-grid position-absolute",
-        percentage < 10 ? "low-percentage" : null,
+        active && percentage < 10 ? "low-percentage" : null,
       ])}
     >
       <div className="dot"></div>
@@ -19,6 +19,7 @@ function Dot({ percentage }) {
 }
 
 Dot.propTypes = {
+  active: PropTypes.bool,
   percentage: PropTypes.number,
 };
 

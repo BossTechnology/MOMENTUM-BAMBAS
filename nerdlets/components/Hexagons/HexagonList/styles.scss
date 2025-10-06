@@ -1,41 +1,19 @@
+// Styles
+@import "mixins/big.scss";
+@import "mixins/small.scss";
+
 %hexagons_hexagonList {
   & .hexagon-list {
     column-gap: 0.1rem;
 
-    &.big-hexagons {
-      & .truck2-icon {
-        top: 40%;
-      }
-
-      & .truck3-icon {
-        top: 47%;
-      }
-
-      & .truck5-icon {
-        top: 40%;
-        left: 60%;
-      }
+    & .hexagon-item {
+      @extend %hexagonList_bigHexagon;
+      @extend %hexagonList_smallHexagon;
     }
 
     &.small-hexagons {
       column-gap: 0.45rem;
       margin-top: -15px !important;
-
-      & .hexagon {
-        min-width: 95px;
-        min-height: 95px;
-
-        & .hexagon-content {
-          & .btn-hexagon {
-            & svg {
-              min-width: 28px;
-              max-width: 28px;
-              min-height: 28px;
-              max-height: 28px;
-            }
-          }
-        }
-      }
     }
   }
 }

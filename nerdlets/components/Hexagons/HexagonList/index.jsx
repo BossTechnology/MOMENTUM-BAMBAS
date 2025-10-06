@@ -22,7 +22,10 @@ export default function HexagonList({ hexagons, className, onViewDetails }) {
       ])}
     >
       {createValidArray(hexagons).map((item) => (
-        <li className="hexagon-item" key={`hexagon-item-${item?._id}`}>
+        <li
+          key={`hexagon-item-${item?._id}`}
+          className={classnames(["hexagon-item", item?.size])}
+        >
           <Hexagon
             {...item}
             onClick={() => handleClickHexagon(item)}

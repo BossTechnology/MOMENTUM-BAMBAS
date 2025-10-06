@@ -1,16 +1,16 @@
 // Hooks
 import useAiChat from "../../../../hooks/useAiChat";
-import useGetSelectedStage from "../../../../storage/stages/useGetSelectedStage";
+import useGetSelectedHexagon from "../../../../context/stages/useGetSelectedHexagon";
 
 /**
  * Hook for implements TiresModalContent component
  */
 export default function useContent() {
   const aiChat = useAiChat();
-  const selectedStage = useGetSelectedStage();
+  const selectedHexagon = useGetSelectedHexagon();
 
   return {
     aiChat: aiChat,
-    selectedStage: selectedStage,
+    selectedHexagon: selectedHexagon,
   };
 }

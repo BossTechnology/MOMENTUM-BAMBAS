@@ -10,9 +10,13 @@ import useContent from "./useContent";
 
 // Utils
 import classnames from "../../../utils/classnames";
+import createValidObject from "../../../utils/createValidObject";
 
 export default function TouchpointsModalContent() {
-  const { views, aiChat, selectedStage, selectedHexagon } = useContent();
+  const { views, aiChat, selectedHexagon } = useContent();
+
+  // Get context fields
+  const fuel = createValidObject(selectedHexagon?.context?.fuel);
 
   return (
     <div className="main-content d-flex flex-column align-items-between">
@@ -26,8 +30,8 @@ export default function TouchpointsModalContent() {
         ])}
       >
         <TouchpointsTable
+          touchpoints={fuel?.touchpoints}
           onClickQuery={views.showQueryView}
-          touchpoints={selectedStage?.fuel?.touchpoints}
         />
 
         <div className={!views.isShowingChatView ? "d-none" : undefined}>

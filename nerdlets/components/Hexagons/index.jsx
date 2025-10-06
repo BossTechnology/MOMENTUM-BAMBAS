@@ -3,32 +3,28 @@ import HexagonList from "./HexagonList";
 import TouchpointsModal from "../TouchpointsModal";
 
 // Hooks
-import useShowModal from "../../hooks/useShowModal";
+import useHexagons from "./useHexagons";
 
-// Constants
-import bigHexagons from "./data/big-hexagons";
-import smallHexagons from "./data/small-hexagons";
+// Utils
+import createValidArray from "../../utils/createValidArray";
 
 export default function Hexagons() {
-  const touchpointsModal = useShowModal();
+  const { hexagonLists, touchpointsModal } = useHexagons();
 
   return (
     <section className="hexagons d-flex flex-column align-items-center justify-content-center">
-      <HexagonList
-        hexagons={bigHexagons}
-        onViewDetails={touchpointsModal.show}
-        className="big-hexagons"
-      />
-
-      <HexagonList
-        hexagons={smallHexagons}
-        onViewDetails={touchpointsModal.show}
-        className="small-hexagons"
-      />
-
       {touchpointsModal.isShowing && (
         <TouchpointsModal isShowing onHide={touchpointsModal.hide} />
       )}
+
+      {createValidArray(hexagonLists).map((item, i) => (
+        <HexagonList
+          hexagons={item?.hexagons}
+          className={item?.className}
+          onViewDetails={touchpointsModal.show}
+          key={`hexagon-list-${i}-${item?._id}`}
+        />
+      ))}
     </section>
   );
 }

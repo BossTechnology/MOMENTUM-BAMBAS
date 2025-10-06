@@ -1,6 +1,6 @@
 // Hooks
 import { useCallback } from "react";
-import useStages from "../../../storage/stages/useStages";
+import useStages from "../../../context/stages/useStages";
 
 /**
  * Hook for implements logic HexagonList component
