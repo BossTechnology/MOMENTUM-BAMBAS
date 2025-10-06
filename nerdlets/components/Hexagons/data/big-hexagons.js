@@ -20,8 +20,6 @@ import {
 const bigHexagons = [
   { active: false },
   { active: false },
-  { active: false },
-
   {
     active: true,
     icon: <Truck1Icon />,
@@ -34,6 +32,8 @@ const bigHexagons = [
         "Cualquier desvío o reducción de velocidad sostenida impacta el ciclo y el rendimiento horario. KPIs: velocidad promedio cargado, tiempo de tránsito, eventos de seguridad.",
     },
   },
+  { active: false },
+
   {
     active: true,
     percentage: 40,
