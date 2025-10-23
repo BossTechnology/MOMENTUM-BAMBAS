@@ -6,31 +6,31 @@ import isValidArray from "../../utils/isValidArray";
 import isValidObject from "../../utils/isValidObject";
 
 // Constants
-import hexagonLists from "./data/hexagon-lists";
+import stageLists from "../../data/journey";
 
 const useStages = create((set) => ({
-  selectedHexagon: {},
-  hexagonLists: hexagonLists,
+  selectedStage: {},
+  stageLists: stageLists,
 
-  // Callback for select specific hexagon
-  selectHexagon: (hexagon) => {
-    // Validate 'hexagon' param
-    if (!isValidObject(hexagon)) return;
+  // Callback for select specific stage
+  selectStage: (stage) => {
+    // Validate 'stage' param
+    if (!isValidObject(stage)) return;
 
     return set((state) => ({
       ...state,
-      selectedHexagon: hexagon,
+      selectedStage: stage,
     }));
   },
 
-  // Callback for set hexagons lists
-  setHexagonLists: (newHexagonLists) => {
-    // Validate 'newHexagonLists' param
-    if (!isValidArray(newHexagonLists)) return;
+  // Callback for set stage lists
+  setStageLists: (newStageLists) => {
+    // Validate 'newStageLists' param
+    if (!isValidArray(newStageLists)) return;
 
     return set((state) => ({
       ...state,
-      hexagonLists: newHexagonLists,
+      stageLists: newStageLists,
     }));
   },
 }));

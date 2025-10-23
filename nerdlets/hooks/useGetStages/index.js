@@ -1,11 +1,11 @@
 // Hooks
 import { useQuery } from "react-query";
 import useStages from "../../context/stages/useStages";
-import useGetHexagonLists from "../../context/stages/useGetHexagonLists";
+import useGetStageLists from "../../context/stages/useGetStageLists";
 
 // Utils
 import getStages from "./getStages";
-import transformHexagonLists from "./utils/transformHexagonLists";
+import transformStageLists from "./utils/transformStageLists";
 
 // Constants
 import queries from "../../data/queries";
@@ -17,8 +17,8 @@ const GET_STAGES = "get-stages";
  * Callback for get stages
  */
 export default function useGetStages() {
-  const hexagonLists = useGetHexagonLists();
-  const setHexagonLists = useStages((state) => state.setHexagonLists);
+  const stageLists = useGetStageLists();
+  const setStageLists = useStages((state) => state.setStageLists);
 
   const queryData = useQuery({
     queryKey: GET_STAGES,
@@ -30,23 +30,21 @@ export default function useGetStages() {
         {
           row: 0,
           position: 3,
-          total_kpi: 20,
+          total_performanceIndicator: 20,
           percentage: 80,
           risk_meter_value: 35,
           risk_meter_percentage: 65,
         },
       ];
 
-      // Transform current hexagon lists based API response
-      const newHexagonLists = transformHexagonLists({
+      // Transform current stage lists based API response
+      const newStageLists = transformStageLists({
         apiResponse: mock,
-        hexagonLists: hexagonLists,
+        stageLists: stageLists,
       });
 
-      console.log({ newHexagonLists });
-
-      // Set new hexagon lists
-      setHexagonLists(newHexagonLists);
+      // Set new stage lists
+      setStageLists(newStageLists);
     },
 
     // Request for get stages

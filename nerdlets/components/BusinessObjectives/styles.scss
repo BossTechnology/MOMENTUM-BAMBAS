@@ -1,0 +1,14 @@
+// Styles
+@import "./FuelModal/styles.scss";
+@import "./TiresModal/styles.scss";
+@import "./BusinessObjective/styles.scss";
+
+.business-objectives {
+  @extend %businessObjectives_businessObjective;
+
+  & .separator {
+    height: 100%;
+    min-width: 1px;
+    background-color: #bdbdbd;
+  }
+}

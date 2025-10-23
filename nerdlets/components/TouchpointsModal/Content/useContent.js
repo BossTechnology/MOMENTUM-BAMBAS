@@ -1,7 +1,7 @@
 // Hooks
 import useViews from "./hooks/useViews";
 import useAiChat from "../../../hooks/useAiChat";
-import useGetSelectedHexagon from "../../../context/stages/useGetSelectedHexagon";
+import useGetSelectedStage from "../../../context/stages/useGetSelectedStage";
 
 /**
  * Hook for implements TouchpointsModalContent component
@@ -9,11 +9,11 @@ import useGetSelectedHexagon from "../../../context/stages/useGetSelectedHexagon
 export default function useContent() {
   const views = useViews();
   const aiChat = useAiChat();
-  const selectedHexagon = useGetSelectedHexagon();
+  const selectedStage = useGetSelectedStage();
 
   return {
     views: views,
     aiChat: aiChat,
-    selectedHexagon: selectedHexagon,
+    selectedStage: selectedStage,
   };
 }

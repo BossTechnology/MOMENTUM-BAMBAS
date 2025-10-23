@@ -1,0 +1,36 @@
+%stage_tooltip {
+  & .tooltip-box {
+    z-index: 1000;
+    min-width: 300px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 0.85rem 0.75rem 1rem;
+
+    &.bottom {
+      top: 101%;
+    }
+
+    &.left {
+      top: -27%;
+      right: 107%;
+    }
+
+    & .message {
+      white-space: pre-line;
+    }
+
+    & svg {
+      min-width: 33px;
+      max-width: 33px;
+      min-height: 33px;
+      max-height: 33px;
+    }
+
+    & .btn-details {
+      color: #ffffff;
+      min-width: 100px;
+      border-radius: 30px;
+      background-color: #374c6c;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+%stage_content {
+  & .stage-content {
+    inset: 10px;
+    clip-path: inherit;
+    background-color: #ffffff;
+
+    & .btn-stage {
+      rotate: -90deg;
+      row-gap: 0.15rem;
+
+      & svg {
+        min-width: 38px;
+        max-width: 38px;
+        min-height: 38px;
+        max-height: 38px;
+      }
+    }
+  }
+}

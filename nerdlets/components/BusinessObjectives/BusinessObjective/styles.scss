@@ -1,0 +1,29 @@
+// Styles
+@import "./RiskMeter/styles.scss";
+@import "./AnswersEngine/styles.scss";
+@import "./PerformanceIndicator/styles.scss";
+
+%businessObjectives_businessObjective {
+  & .business-objective {
+    width: 33.33%;
+    padding: 0 2rem;
+
+    @extend %businessObjective_riskMeter;
+    @extend %businessObjective_answersEngine;
+    @extend %businessObjective_performanceIndicator;
+
+    & > .title {
+      font-size: 18px;
+    }
+
+    & .risk-meter-box {
+      margin: 4rem 0;
+    }
+
+    & .shadow-box {
+      background-color: #ffffff;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.08),
+        0 12px 24px rgba(0, 0, 0, 0.06);
+    }
+  }
+}

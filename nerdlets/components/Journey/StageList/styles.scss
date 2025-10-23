@@ -1,0 +1,19 @@
+// Styles
+@import "mixins/big.scss";
+@import "mixins/small.scss";
+
+%journey_stageList {
+  & .stage-list {
+    column-gap: 0.1rem;
+
+    & .stage-item {
+      @extend %stageList_bigStage;
+      @extend %stageList_smallStage;
+    }
+
+    &.small-stage {
+      column-gap: 0.45rem;
+      margin-top: -15px !important;
+    }
+  }
+}

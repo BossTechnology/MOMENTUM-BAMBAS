@@ -13,14 +13,14 @@ import classnames from "../../../utils/classnames";
 import createValidObject from "../../../utils/createValidObject";
 
 export default function TouchpointsModalContent() {
-  const { views, aiChat, selectedHexagon } = useContent();
+  const { views, aiChat, selectedStage } = useContent();
 
   // Get context fields
-  const fuel = createValidObject(selectedHexagon?.context?.fuel);
+  const fuel = createValidObject(selectedStage?.context?.fuel);
 
   return (
     <div className="main-content d-flex flex-column align-items-between">
-      <TopContent selectedHexagon={selectedHexagon} />
+      <TopContent selectedStage={selectedStage} />
 
       <div
         ref={aiChat.scrollbarRef}

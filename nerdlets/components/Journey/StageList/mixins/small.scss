@@ -1,0 +1,19 @@
+%stageList_smallStage {
+  &.small-stage {
+    & .stage {
+      min-width: 95px;
+      min-height: 95px;
+
+      & .stage-content {
+        & .btn-stage {
+          & svg {
+            min-width: 28px;
+            max-width: 28px;
+            min-height: 28px;
+            max-height: 28px;
+          }
+        }
+      }
+    }
+  }
+}

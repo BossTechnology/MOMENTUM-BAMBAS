@@ -1,0 +1,6 @@
+// Styles
+@import "./StageList/styles.scss";
+
+.journey {
+  @extend %journey_stageList;
+}

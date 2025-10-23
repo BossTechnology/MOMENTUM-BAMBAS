@@ -5,15 +5,15 @@ import isValidObject from "../../../utils/isValidObject";
 import createValidArray from "../../../utils/createValidArray";
 
 /**
- * Callback for transform hexagon lists
+ * Callback for transform stage lists
  * @param {object} params Params
  */
-export default function transformHexagonLists(params) {
+export default function transformStageLists(params) {
   // Create valid params
   const items = createValidArray(params?.apiResponse);
-  const hexagonLists = createValidArray(params?.hexagonLists);
+  const stageLists = createValidArray(params?.stageLists);
 
-  const newHexagonLists = [...hexagonLists];
+  const newStageLists = [...stageLists];
 
   for (let i = 0; i < items.length; i++) {
     // Get item
@@ -25,27 +25,27 @@ export default function transformHexagonLists(params) {
     if (!isValidNumber(row) || !isValidNumber(position)) continue;
 
     // Check if exists row
-    const itemRow = newHexagonLists[row];
+    const itemRow = newStageLists[row];
 
     // Validate 'itemRow' field
     if (!isValidObject(itemRow)) continue;
 
-    // Get hexagons of item row
-    const hexagons = itemRow?.hexagons;
+    // Get stage of item row
+    const stage = itemRow?.stage;
 
-    // Validate 'hexagons' field
-    if (!isValidArray(hexagons)) continue;
+    // Validate 'stage' field
+    if (!isValidArray(stage)) continue;
 
     // Check if exists position
-    const hexagonItem = hexagons[position];
+    const stageItem = stage[position];
 
-    // Validate 'hexagonItem' field
-    if (!isValidObject(hexagonItem)) continue;
+    // Validate 'stageItem' field
+    if (!isValidObject(stageItem)) continue;
 
-    // Hola Camilo, a continuación debes pasar la data que viene de la api al hexagono, debes guiarte con el json que te envie, alli tiene la estructura completa del hexagon
+    // Hola Camilo, a continuación debes pasar la data que viene de la api al stageo, debes guiarte con el json que te envie, alli tiene la estructura completa del stage
 
     /**
-     * Mi recomendación es que al momento de crear los contextos para fuel, tires y production, crees funciones que esten al mismo nivel de 'transformHexagonLists' y las llames, pasando la data que necesitas. Por ejemplo:
+     * Mi recomendación es que al momento de crear los contextos para fuel, tires y production, crees funciones que esten al mismo nivel de 'transformStageLists' y las llames, pasando la data que necesitas. Por ejemplo:
      * 
      * // Utils
         import isValidArray from "../../../utils/isValidArray";
@@ -70,17 +70,20 @@ export default function transformHexagonLists(params) {
      * Además ten encuenta que row y position se toman desde indice 0
      */
 
-    // Define hexagon with context with API data
-    const hexagon = {
-      ...hexagonItem,
+    // Define stage with context with API data
+    const stage = {
+      ...stageItem,
 
       percentage: item?.percentage,
 
-      // Hexagon context
+      // Stage context
       context: {
         // Fuel context
         fuel: {
-          kpi: { total: item?.total_kpi, status: "low" },
+          performanceIndicator: {
+            total: item?.total_performanceIndicator,
+            status: "low",
+          },
 
           riskMeter: {
             value: item?.risk_meter_value,
@@ -94,7 +97,7 @@ export default function transformHexagonLists(params) {
         // Tires context
         tires: {
           hoursOfLife: 20,
-          kpi: { total: 35, status: "" },
+          performanceIndicator: { total: 35, status: "" },
           riskMeter: { value: 45, percentage: 15 },
           answersEngine: [],
           touchpoints: [],
@@ -102,16 +105,16 @@ export default function transformHexagonLists(params) {
 
         // Production context
         production: {
-          kpi: { total: 50, status: "" },
+          performanceIndicator: { total: 50, status: "" },
           riskMeter: { value: 30, percentage: 90 },
           answersEngine: [],
         },
       },
     };
 
-    // Assign hexagon to hexagon item
-    newHexagonLists[row].hexagons[position] = hexagon;
+    // Assign stage to stage item
+    newStageLists[row].stage[position] = stage;
   }
 
-  return newHexagonLists;
+  return newStageLists;
 }

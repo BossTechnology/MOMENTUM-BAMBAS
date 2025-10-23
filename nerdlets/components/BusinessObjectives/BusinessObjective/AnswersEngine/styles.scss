@@ -1,0 +1,17 @@
+// Styles
+@import "./AnswersTable/styles.scss";
+
+%businessObjective_answersEngine {
+  & .answer-engine-box {
+    @extend %answersEngine_answersTable;
+
+    & .title {
+      font-size: 14px;
+    }
+
+    & .shadow-box {
+      border-radius: 10px;
+      padding: 0.75rem 0.75rem 1rem;
+    }
+  }
+}
