@@ -16,7 +16,7 @@ function Tooltip({ hide, title, message, onViewDetails }) {
       role="tooltip"
       className={classnames([
         window.innerWidth <= 1400 ? "left" : "bottom",
-        "tooltip-box d-flex flex-column position-absolute",
+        "tooltip-box d-flex flex-column position-absolute"
       ])}
     >
       <Portal wrapperId="modal-portal-container">
@@ -34,11 +34,7 @@ function Tooltip({ hide, title, message, onViewDetails }) {
 
       <p className="message mt-2 mb-4">{message}</p>
 
-      <Button
-        title="+ Detalles"
-        className="fw-light btn-details ms-auto"
-        onClick={onViewDetails}
-      />
+      <Button title="Mas" className="fw-light btn-details ms-auto" onClick={onViewDetails} />
     </article>
   );
 }
@@ -47,7 +43,7 @@ Tooltip.propTypes = {
   onViewDetails: PropTypes.func,
   hide: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
-  message: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired
 };
 
 export default memo(Tooltip);

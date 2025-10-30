@@ -16,21 +16,18 @@
     "uuid": "42c5d27b-f5cc-4a94-a718-7029088c9285"
   },
   "dependencies": {
-    "@hookform/resolvers": "3.1.1",
-    "axios": "1.11.0",
+    "axios": "1.12.2",
     "bootstrap": "5.3.7",
     "prop-types": "15.7.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-dropzone": "14.3.8",
-    "react-hook-form": "7.45.2",
     "react-query": "3.39.3",
-    "yup": "1.6.1",
     "zustand": "4.5.5"
   },
   "browserslist": [
     "last 2 versions",
     "not ie < 11",
     "not dead"
-  ]
+  ],
+  "devDependencies": {}
 }

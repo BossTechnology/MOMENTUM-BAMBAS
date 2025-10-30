@@ -13,27 +13,21 @@ import useStage from "./useStage";
 // Utils
 import classnames from "../../utils/classnames";
 
-function Stage({
-  ai,
-  icon,
-  name,
-  active,
-  onClick,
-  aiMessage,
-  percentage,
-  onViewDetails,
-}) {
+function Stage(stageProps) {
+  const { ai, icon, name, active, percentage, onClick, onViewDetails } = stageProps;
+
   const {
     pct,
     hideTooltip,
     isShowingTooltip,
     handleViewDetails,
     handleClickStage,
+    tooltipTitle,
+    tooltipMessage
   } = useStage({
-    ai: ai,
+    stageData: stageProps,
     onClick: onClick,
-    percentage: percentage,
-    onViewDetails: onViewDetails,
+    onViewDetails: onViewDetails
   });
 
   return (
@@ -41,23 +35,19 @@ function Stage({
       className={classnames([
         active ? "active" : null,
         isShowingTooltip ? "showing-tooltip 1" : null,
-        "stage-box d-flex align-items-center justify-content-center position-relative",
+        "stage-box d-flex align-items-center justify-content-center position-relative"
       ])}
     >
       <div className="stage position-relative" style={{ "--pct": pct }}>
-        <StageContent
-          icon={icon}
-          percentage={percentage}
-          onClick={handleClickStage}
-        />
+        <StageContent icon={icon} percentage={percentage} onClick={handleClickStage} />
       </div>
 
       <Dot active={active} percentage={percentage} />
 
       {active && isShowingTooltip && (
         <Tooltip
-          title={name}
-          message={aiMessage}
+          title={tooltipTitle}
+          message={tooltipMessage}
           onViewDetails={handleViewDetails}
           hide={hideTooltip}
         />
@@ -76,7 +66,7 @@ Stage.propTypes = {
   onClick: PropTypes.func,
   onViewDetails: PropTypes.func,
 
-  percentage: PropTypes.number.isRequired,
+  percentage: PropTypes.number.isRequired
 };
 
 export default memo(Stage);

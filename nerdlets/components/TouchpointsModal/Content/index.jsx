@@ -1,22 +1,28 @@
-// Components
 import Chat from "../../Chat";
 import QueryView from "./QueryView";
 import TopContent from "./TopContent";
 import CommentForm from "../../CommentForm";
 import TouchpointsTable from "../../TouchpointsTable";
 
-// Hooks
 import useContent from "./useContent";
+import useAiChat from "../../../hooks/useAiChat";
 
-// Utils
 import classnames from "../../../utils/classnames";
-import createValidObject from "../../../utils/createValidObject";
+import buildTouchpointRows from "../../../data/tools/buildTouchpointRows";
+
+import { useDataStore } from "../../../data/Store/useDataStore";
 
 export default function TouchpointsModalContent() {
-  const { views, aiChat, selectedStage } = useContent();
+  const { views, selectedStage } = useContent();
 
-  // Get context fields
-  const fuel = createValidObject(selectedStage?.context?.fuel);
+  // pull rawResults from the store
+  const rawResults = useDataStore((s) => s.rawResults);
+
+  // now build table rows using stage + rawResults
+  const touchpointsData = buildTouchpointRows(selectedStage, rawResults);
+
+  // build AI chat with context that includes those rows
+  const aiChat = useAiChat(selectedStage, touchpointsData);
 
   return (
     <div className="main-content d-flex flex-column align-items-between">
@@ -26,13 +32,10 @@ export default function TouchpointsModalContent() {
         ref={aiChat.scrollbarRef}
         className={classnames([
           views.currentView,
-          "scrollbar-box little-scrollbar overflow-y-auto",
+          "scrollbar-box little-scrollbar overflow-y-auto"
         ])}
       >
-        <TouchpointsTable
-          touchpoints={fuel?.touchpoints}
-          onClickQuery={views.showQueryView}
-        />
+        <TouchpointsTable touchpoints={touchpointsData} onClickQuery={views.showQueryView} />
 
         <div className={!views.isShowingChatView ? "d-none" : undefined}>
           <Chat messages={aiChat.messages} />
@@ -44,7 +47,7 @@ export default function TouchpointsModalContent() {
       </div>
 
       {views.isShowingQueryView && (
-        <QueryView onBack={views.showChatView} query={views.viewData?.query} />
+        <QueryView onBack={views.showQueryView} query={views.viewData?.query} />
       )}
     </div>
   );

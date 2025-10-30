@@ -1,32 +1,23 @@
-// Components
 import StageList from "./StageList";
 import TouchpointsModal from "../TouchpointsModal";
-
-// Hooks
-// import useStages from "./useStages";
-import useShowModal from "../../hooks/useShowModal";
-
-// Utils
+import { journeyStages } from "../../data/journey/journeyStages";
+import { useDataStore } from "../../data/Store/useDataStore";
 import createValidArray from "../../utils/createValidArray";
 
-// Constants
-import journey from "../../data/journey";
-
 export default function Journey() {
-  const touchpointsModal = useShowModal();
-  // const { stageLists, touchpointsModal } = useStages();
+  const { stagesWithPercentage, isModalOpen, openModal, closeModal } = useDataStore();
+
+  const journey = journeyStages(stagesWithPercentage);
 
   return (
     <section className="journey d-flex flex-column align-items-center justify-content-center">
-      {touchpointsModal.isShowing && (
-        <TouchpointsModal isShowing onHide={touchpointsModal.hide} />
-      )}
+      {isModalOpen && <TouchpointsModal isShowing={isModalOpen} onHide={closeModal} />}
 
       {createValidArray(journey).map((item, i) => (
         <StageList
           stages={item?.stages}
           className={item?.className}
-          onViewDetails={touchpointsModal.show}
+          onViewDetails={openModal} // <- sets isModalOpen + selectedItem in the store
           key={`stage-list-${i}-${item?._id}`}
         />
       ))}

@@ -1,56 +1,56 @@
-// Hooks
 import { useState, useEffect, useCallback } from "react";
-
-// Utils
+import { useDataStore } from "../../data/Store/useDataStore";
 import isFunction from "../../utils/isFunction";
 import isValidNumber from "../../utils/isValidNumber";
 
 const DELAY = 300;
 
-/**
- * Hook for implements logic Stage component
- * @param {object} params Params
- */
-export default function useStage({ ai, onClick, percentage, onViewDetails }) {
+export default function useStage({ stageData, onClick, onViewDetails }) {
+  const { ai, percentage } = stageData || {};
+
   const [pct, setPct] = useState(0);
   const [isShowingTooltip, setShowingTooltip] = useState(false);
 
-  // Callback for hide tooltip
+  // grab cached AI for this stage
+  const getStageAiAnswer = useDataStore((s) => s.getStageAiAnswer);
+  const cachedAi = getStageAiAnswer(stageData) || {};
+  const tooltipTitle =
+    cachedAi.title ||
+    stageData?.tooltip?.title ||
+    stageData?.label ||
+    stageData?.name ||
+    stageData?.idStage ||
+    "";
+  const tooltipMessage = cachedAi.answer || "Analizando..."; // fallback text while we don't have AI yet
+
   const hideTooltip = useCallback(() => setShowingTooltip(false), []);
 
-  // Click event in stage
   const handleClickStage = useCallback(() => {
     if (ai) {
       setShowingTooltip(true);
 
-      // Validate 'onClick' param
-      if (!isFunction(onClick)) return;
-      onClick();
-
+      if (isFunction(onClick)) {
+        onClick();
+      }
       return;
     }
 
-    // Validate 'onViewDetails' param
-    if (!isFunction(onViewDetails)) return;
-    onViewDetails();
-  }, [onClick, onViewDetails]);
+    if (isFunction(onViewDetails)) {
+      onViewDetails();
+    }
+  }, [ai, onClick, onViewDetails]);
 
-  // Click event in stage
   const handleViewDetails = useCallback(() => {
     hideTooltip();
 
-    // Validate 'onViewDetails' param
     if (!isFunction(onViewDetails)) return;
     onViewDetails();
-  }, [onViewDetails]);
+  }, [onViewDetails, hideTooltip]);
 
-  // Effect for update stage percentage
   useEffect(() => {
     let mounted = true;
 
-    // Update percentage after short delay
     if (mounted && isValidNumber(percentage)) {
-      // Create timeout and save percentage
       const timeout = setTimeout(() => {
         setPct(percentage);
         clearTimeout(timeout);
@@ -63,11 +63,12 @@ export default function useStage({ ai, onClick, percentage, onViewDetails }) {
   }, [percentage]);
 
   return {
-    pct: pct,
-    isShowingTooltip: isShowingTooltip,
-
-    hideTooltip: hideTooltip,
-    handleViewDetails: handleViewDetails,
-    handleClickStage: handleClickStage,
+    pct,
+    isShowingTooltip,
+    hideTooltip,
+    handleViewDetails,
+    handleClickStage,
+    tooltipTitle,
+    tooltipMessage
   };
 }

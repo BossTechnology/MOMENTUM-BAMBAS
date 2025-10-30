@@ -18,18 +18,16 @@ export default function StageList({ stages, className, onViewDetails }) {
     <ul
       className={classnames([
         className,
-        "stage-list d-flex align-items-center list-unstyled p-0 m-0",
+        "stage-list d-flex align-items-center list-unstyled p-0 m-0"
       ])}
     >
       {createValidArray(stages).map((item) => (
-        <li
-          key={`stage-item-${item?._id}`}
-          className={classnames(["stage-item", item?.size])}
-        >
+        <li key={`stage-item-${item?._id}`} className={classnames(["stage-item", item?.size])}>
           <Stage
             {...item}
             onClick={() => handleClickStage(item)}
             onViewDetails={() => onViewDetails(item)}
+            percentage={item.percentage}
           />
         </li>
       ))}
@@ -40,5 +38,5 @@ export default function StageList({ stages, className, onViewDetails }) {
 StageList.propTypes = {
   className: PropTypes.string,
   onViewDetails: PropTypes.func,
-  stages: PropTypes.arrayOf(PropTypes.object).isRequired,
+  stages: PropTypes.arrayOf(PropTypes.object).isRequired
 };

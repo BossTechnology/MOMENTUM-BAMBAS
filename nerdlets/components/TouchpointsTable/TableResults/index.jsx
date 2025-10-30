@@ -23,5 +23,5 @@ export default function TableResults({ results, onClickQuery }) {
 
 TableResults.propTypes = {
   onClickQuery: PropTypes.func.isRequired,
-  results: PropTypes.arrayOf(PropTypes.object).isRequired,
+  results: PropTypes.arrayOf(PropTypes.object).isRequired
 };
